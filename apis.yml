@@ -1,0 +1,37 @@
+aid: harness-cloud-cost
+name: Harness Cloud Cost Management
+description: >-
+  Harness Cloud Cost Management provides intelligent cloud cost optimization
+  with AI-driven recommendations, budgets, and anomaly detection.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - FinOps
+  - Cloud Cost Management
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/apis.yml
+created: '2026-03-27'
+modified: '2026-03-27'
+specificationVersion: '0.19'
+apis:
+  - aid: harness-cloud-cost:harness-cloud-cost
+    name: Harness Cloud Cost Management
+    description: >-
+      Harness Cloud Cost Management provides intelligent cloud cost optimization
+      with AI-driven recommendations, budgets, and anomaly detection.
+    humanURL: https://www.harness.io/products/cloud-cost
+    tags:
+      - FinOps
+    properties:
+      - type: Documentation
+        url: https://developer.harness.io/docs/cloud-cost-management
+      - type: Getting Started
+        url: https://developer.harness.io/docs/cloud-cost-management
+common:
+  - type: Website
+    url: https://www.harness.io/products/cloud-cost
+  - type: Documentation
+    url: https://developer.harness.io/docs/cloud-cost-management
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
