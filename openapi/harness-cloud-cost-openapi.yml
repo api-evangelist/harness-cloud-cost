@@ -1,0 +1,574 @@
+openapi: 3.0.3
+info:
+  title: Harness Cloud Cost Management API
+  description: >-
+    The Harness Cloud Cost Management (CCM) API provides programmatic access to
+    cloud cost data, perspectives, budgets, anomaly detection, and AI-driven
+    recommendations across AWS, Azure, GCP, and Kubernetes environments. CCM
+    enables FinOps practices by exposing granular cost details across
+    namespaces, nodes, pods, accounts, and services.
+  version: '1.0'
+  contact:
+    name: Harness Support
+    url: https://developer.harness.io/docs/cloud-cost-management
+    email: support@harness.io
+  license:
+    name: Harness Terms of Service
+    url: https://harness.io/legal/terms
+servers:
+  - url: https://app.harness.io
+    description: Harness production endpoint
+security:
+  - ApiKeyAuth: []
+tags:
+  - name: Perspectives
+    description: Group and analyze cloud cost data through customizable views.
+  - name: Budgets
+    description: Define and monitor cloud spending budgets with alerts.
+  - name: Recommendations
+    description: AI-driven recommendations for cloud cost optimization.
+  - name: Anomalies
+    description: Detect and review unusual cost patterns and anomalies.
+  - name: Cost Categories
+    description: Allocate and chargeback cloud costs by business units.
+  - name: Connectors
+    description: Manage cloud provider and Kubernetes connectors for cost ingestion.
+paths:
+  /ccm/api/perspective:
+    get:
+      tags:
+        - Perspectives
+      summary: List perspectives
+      description: Returns a list of cost perspectives configured in the account.
+      operationId: listPerspectives
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+      responses:
+        '200':
+          description: A paged list of perspectives.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PerspectiveList'
+    post:
+      tags:
+        - Perspectives
+      summary: Create a perspective
+      description: Creates a new cost perspective.
+      operationId: createPerspective
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Perspective'
+      responses:
+        '200':
+          description: The created perspective.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Perspective'
+  /ccm/api/perspective/{perspectiveId}:
+    get:
+      tags:
+        - Perspectives
+      summary: Get a perspective
+      operationId: getPerspective
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+        - name: perspectiveId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A single perspective.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Perspective'
+    put:
+      tags:
+        - Perspectives
+      summary: Update a perspective
+      operationId: updatePerspective
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+        - name: perspectiveId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Perspective'
+      responses:
+        '200':
+          description: The updated perspective.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Perspective'
+    delete:
+      tags:
+        - Perspectives
+      summary: Delete a perspective
+      operationId: deletePerspective
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+        - name: perspectiveId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Perspective deleted.
+  /ccm/api/budgets:
+    get:
+      tags:
+        - Budgets
+      summary: List budgets
+      description: Returns the budgets configured in the account.
+      operationId: listBudgets
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+      responses:
+        '200':
+          description: A list of budgets.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Budget'
+    post:
+      tags:
+        - Budgets
+      summary: Create a budget
+      operationId: createBudget
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Budget'
+      responses:
+        '200':
+          description: The created budget.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Budget'
+  /ccm/api/budgets/{budgetId}:
+    get:
+      tags:
+        - Budgets
+      summary: Get a budget
+      operationId: getBudget
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A single budget.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Budget'
+    put:
+      tags:
+        - Budgets
+      summary: Update a budget
+      operationId: updateBudget
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Budget'
+      responses:
+        '200':
+          description: The updated budget.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Budget'
+    delete:
+      tags:
+        - Budgets
+      summary: Delete a budget
+      operationId: deleteBudget
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Budget deleted.
+  /ccm/api/recommendation/overview/list:
+    get:
+      tags:
+        - Recommendations
+      summary: List cost recommendations
+      description: Returns CCM recommendations for cost savings.
+      operationId: listRecommendations
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+      responses:
+        '200':
+          description: A list of recommendations.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Recommendation'
+  /ccm/api/recommendation/{recommendationId}:
+    get:
+      tags:
+        - Recommendations
+      summary: Get a recommendation
+      operationId: getRecommendation
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+        - name: recommendationId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Recommendation detail.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recommendation'
+  /ccm/api/anomaly:
+    get:
+      tags:
+        - Anomalies
+      summary: List anomalies
+      description: Returns the cost anomalies detected in the account.
+      operationId: listAnomalies
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+      responses:
+        '200':
+          description: A list of anomalies.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Anomaly'
+  /ccm/api/anomaly/{anomalyId}:
+    get:
+      tags:
+        - Anomalies
+      summary: Get an anomaly
+      operationId: getAnomaly
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+        - name: anomalyId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A single anomaly.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Anomaly'
+  /ccm/api/business-mapping:
+    get:
+      tags:
+        - Cost Categories
+      summary: List cost categories
+      description: Returns cost categories (business mappings) used for chargeback and showback.
+      operationId: listCostCategories
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+      responses:
+        '200':
+          description: A list of cost categories.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CostCategory'
+    post:
+      tags:
+        - Cost Categories
+      summary: Create a cost category
+      operationId: createCostCategory
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CostCategory'
+      responses:
+        '200':
+          description: The created cost category.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostCategory'
+  /ng/api/connectors:
+    get:
+      tags:
+        - Connectors
+      summary: List connectors
+      description: Returns the connectors (cloud accounts and Kubernetes clusters) used for cost ingestion.
+      operationId: listConnectors
+      parameters:
+        - $ref: '#/components/parameters/AccountIdentifier'
+        - name: type
+          in: query
+          schema:
+            type: string
+            example: CEAws
+      responses:
+        '200':
+          description: A list of connectors.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Connector'
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Harness Personal Access Token or Service Account API key.
+  parameters:
+    AccountIdentifier:
+      name: accountIdentifier
+      in: query
+      required: true
+      schema:
+        type: string
+      description: The Harness account identifier.
+  schemas:
+    Perspective:
+      type: object
+      properties:
+        uuid:
+          type: string
+        name:
+          type: string
+        viewType:
+          type: string
+          enum: [DEFAULT, CUSTOMER, SAMPLE]
+        viewState:
+          type: string
+          enum: [DRAFT, COMPLETED]
+        accountId:
+          type: string
+        folderId:
+          type: string
+        viewVersion:
+          type: string
+        viewTimeRange:
+          type: object
+          properties:
+            viewTimeRangeType:
+              type: string
+              enum: [LAST_7, LAST_30_DAYS, LAST_MONTH, CURRENT_MONTH, CUSTOM]
+            startTime:
+              type: integer
+              format: int64
+            endTime:
+              type: integer
+              format: int64
+        dataSources:
+          type: array
+          items:
+            type: string
+            enum: [CLUSTER, AWS, GCP, AZURE, COMMON, CUSTOM, BUSINESS_MAPPING, LABEL, LABEL_V2]
+    PerspectiveList:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+        views:
+          type: array
+          items:
+            $ref: '#/components/schemas/Perspective'
+    Budget:
+      type: object
+      properties:
+        uuid:
+          type: string
+        name:
+          type: string
+        accountId:
+          type: string
+        type:
+          type: string
+          enum: [SPECIFIED_AMOUNT, PREVIOUS_MONTH_SPEND, PREVIOUS_PERIOD_SPEND]
+        budgetAmount:
+          type: number
+          format: double
+        actualCost:
+          type: number
+          format: double
+        forecastCost:
+          type: number
+          format: double
+        period:
+          type: string
+          enum: [DAILY, WEEKLY, MONTHLY, QUARTERLY, YEARLY]
+        growthRate:
+          type: number
+          format: double
+        alertThresholds:
+          type: array
+          items:
+            type: object
+            properties:
+              percentage:
+                type: number
+              basedOn:
+                type: string
+                enum: [ACTUAL_COST, FORECASTED_COST]
+              emailAddresses:
+                type: array
+                items:
+                  type: string
+        scope:
+          type: object
+          properties:
+            type:
+              type: string
+              enum: [PERSPECTIVE, APPLICATION]
+            entityIds:
+              type: array
+              items:
+                type: string
+    Recommendation:
+      type: object
+      properties:
+        id:
+          type: string
+        clusterName:
+          type: string
+        namespace:
+          type: string
+        resourceName:
+          type: string
+        resourceType:
+          type: string
+          enum: [WORKLOAD, NODE_POOL, ECS_SERVICE, EC2_INSTANCE, GOVERNANCE]
+        monthlyCost:
+          type: number
+          format: double
+        monthlySaving:
+          type: number
+          format: double
+        recommendationDetails:
+          type: object
+          additionalProperties: true
+    Anomaly:
+      type: object
+      properties:
+        id:
+          type: string
+        accountId:
+          type: string
+        actualCost:
+          type: number
+          format: double
+        expectedCost:
+          type: number
+          format: double
+        anomalyScore:
+          type: number
+          format: double
+        anomalyTime:
+          type: integer
+          format: int64
+        cloudProvider:
+          type: string
+          enum: [AWS, AZURE, GCP, CLUSTER]
+        resourceName:
+          type: string
+        resourceInfo:
+          type: string
+        userFeedback:
+          type: string
+          enum: [TRUE_ANOMALY, FALSE_ANOMALY, NOT_RESPONDED]
+    CostCategory:
+      type: object
+      properties:
+        uuid:
+          type: string
+        name:
+          type: string
+        accountId:
+          type: string
+        costTargets:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              rules:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+        sharedCosts:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        unallocatedCost:
+          type: object
+          additionalProperties: true
+    Connector:
+      type: object
+      properties:
+        identifier:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum: [CEAws, CEAzure, CEGcp, CEK8sCluster]
+        spec:
+          type: object
+          additionalProperties: true

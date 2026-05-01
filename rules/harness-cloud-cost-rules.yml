@@ -1,0 +1,94 @@
+aid: harness-cloud-cost:harness-cloud-cost
+name: Harness Cloud Cost Management Rules
+description: >-
+  A set of rules used to govern, audit, and analyze the Harness Cloud Cost
+  Management API surface. These rules cover authentication, request shape,
+  response handling, and FinOps-aligned operational guidance for using CCM
+  endpoints (Perspectives, Budgets, Recommendations, Anomalies, Cost Categories,
+  and Connectors).
+tags:
+  - Cloud Cost Management
+  - FinOps
+  - Governance
+  - Harness
+rules:
+  - id: ccm-auth-required
+    name: API Key Required
+    description: >-
+      All Harness CCM API requests must include a valid x-api-key header
+      containing a Harness Personal Access Token or Service Account API key.
+    severity: error
+    appliesTo:
+      - all-endpoints
+  - id: ccm-account-identifier-required
+    name: accountIdentifier Required
+    description: >-
+      Every CCM API request must include the accountIdentifier query parameter
+      to scope the call to a specific Harness account.
+    severity: error
+    appliesTo:
+      - all-endpoints
+  - id: ccm-rate-limit
+    name: Respect Rate Limits
+    description: >-
+      Harness enforces per-account rate limits. Clients should implement
+      exponential backoff and honor 429 Too Many Requests responses.
+    severity: warning
+    appliesTo:
+      - all-endpoints
+  - id: ccm-budget-thresholds
+    name: Budget Alerts Should Have Thresholds
+    description: >-
+      Budgets created via the API should include at least one alert threshold
+      to ensure spending is monitored proactively.
+    severity: warning
+    appliesTo:
+      - /ccm/api/budgets
+  - id: ccm-perspective-data-sources
+    name: Perspective Must Specify Data Sources
+    description: >-
+      Cost perspectives should declare their dataSources (AWS, AZURE, GCP,
+      CLUSTER, etc.) so cost rollups are scoped correctly.
+    severity: warning
+    appliesTo:
+      - /ccm/api/perspective
+  - id: ccm-anomaly-feedback
+    name: Provide Anomaly Feedback
+    description: >-
+      Teams should provide userFeedback (TRUE_ANOMALY or FALSE_ANOMALY) on
+      detected anomalies to improve detection accuracy over time.
+    severity: info
+    appliesTo:
+      - /ccm/api/anomaly
+  - id: ccm-recommendation-review-cadence
+    name: Recommendation Review Cadence
+    description: >-
+      Cost-saving recommendations should be reviewed on a recurring cadence
+      (weekly or monthly) and either applied or dismissed with rationale.
+    severity: info
+    appliesTo:
+      - /ccm/api/recommendation/overview/list
+  - id: ccm-cost-category-coverage
+    name: Cost Category Allocation Coverage
+    description: >-
+      Cost categories should aim to allocate the majority of spend across
+      defined business units; unallocated cost should be monitored and reduced.
+    severity: warning
+    appliesTo:
+      - /ccm/api/business-mapping
+  - id: ccm-connector-health
+    name: Connector Health Monitoring
+    description: >-
+      CCM connectors should be checked regularly for ingestion health to ensure
+      cost data accuracy across cloud providers and Kubernetes clusters.
+    severity: warning
+    appliesTo:
+      - /ng/api/connectors
+  - id: ccm-pii-avoidance
+    name: Avoid PII in Names and Tags
+    description: >-
+      Resource names, tags, and user-defined fields surfaced via CCM should
+      not include personally identifiable information.
+    severity: error
+    appliesTo:
+      - all-endpoints
