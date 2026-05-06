@@ -1,0 +1,669 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Harness Cloud Cost Management API
+  description: The Harness Cloud Cost Management (CCM) API provides programmatic access to cloud cost data, perspectives,
+    budgets, anomaly detection, and AI-driven recommendations across AWS, Azure, GCP, and Kubernetes environments. CCM enables
+    FinOps practices by exposing granular cost details across namespaces, nodes, pods, accounts, and services.
+  tags:
+  - Harness
+  - Cloud
+  - Cost
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: harness-cloud-cost
+    baseUri: https://app.harness.io
+    description: Harness Cloud Cost Management API HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: x-api-key
+      value: '{{HARNESS_CLOUD_COST_TOKEN}}'
+    resources:
+    - name: ccm-api-perspective
+      path: /ccm/api/perspective
+      operations:
+      - name: listperspectives
+        method: GET
+        description: List perspectives
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createperspective
+        method: POST
+        description: Create a perspective
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ccm-api-perspective-perspectiveid
+      path: /ccm/api/perspective/{perspectiveId}
+      operations:
+      - name: getperspective
+        method: GET
+        description: Get a perspective
+        inputParameters:
+        - name: perspectiveId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateperspective
+        method: PUT
+        description: Update a perspective
+        inputParameters:
+        - name: perspectiveId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteperspective
+        method: DELETE
+        description: Delete a perspective
+        inputParameters:
+        - name: perspectiveId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ccm-api-budgets
+      path: /ccm/api/budgets
+      operations:
+      - name: listbudgets
+        method: GET
+        description: List budgets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createbudget
+        method: POST
+        description: Create a budget
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ccm-api-budgets-budgetid
+      path: /ccm/api/budgets/{budgetId}
+      operations:
+      - name: getbudget
+        method: GET
+        description: Get a budget
+        inputParameters:
+        - name: budgetId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatebudget
+        method: PUT
+        description: Update a budget
+        inputParameters:
+        - name: budgetId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletebudget
+        method: DELETE
+        description: Delete a budget
+        inputParameters:
+        - name: budgetId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ccm-api-recommendation-overview-list
+      path: /ccm/api/recommendation/overview/list
+      operations:
+      - name: listrecommendations
+        method: GET
+        description: List cost recommendations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ccm-api-recommendation-recommendationid
+      path: /ccm/api/recommendation/{recommendationId}
+      operations:
+      - name: getrecommendation
+        method: GET
+        description: Get a recommendation
+        inputParameters:
+        - name: recommendationId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ccm-api-anomaly
+      path: /ccm/api/anomaly
+      operations:
+      - name: listanomalies
+        method: GET
+        description: List anomalies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ccm-api-anomaly-anomalyid
+      path: /ccm/api/anomaly/{anomalyId}
+      operations:
+      - name: getanomaly
+        method: GET
+        description: Get an anomaly
+        inputParameters:
+        - name: anomalyId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ccm-api-business-mapping
+      path: /ccm/api/business-mapping
+      operations:
+      - name: listcostcategories
+        method: GET
+        description: List cost categories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcostcategory
+        method: POST
+        description: Create a cost category
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ng-api-connectors
+      path: /ng/api/connectors
+      operations:
+      - name: listconnectors
+        method: GET
+        description: List connectors
+        inputParameters:
+        - name: type
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: harness-cloud-cost-rest
+    description: REST adapter for Harness Cloud Cost Management API.
+    resources:
+    - path: /ccm/api/perspective
+      name: listperspectives
+      operations:
+      - method: GET
+        name: listperspectives
+        description: List perspectives
+        call: harness-cloud-cost.listperspectives
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ccm/api/perspective
+      name: createperspective
+      operations:
+      - method: POST
+        name: createperspective
+        description: Create a perspective
+        call: harness-cloud-cost.createperspective
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ccm/api/perspective/{perspectiveId}
+      name: getperspective
+      operations:
+      - method: GET
+        name: getperspective
+        description: Get a perspective
+        call: harness-cloud-cost.getperspective
+        with:
+          perspectiveId: rest.perspectiveId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ccm/api/perspective/{perspectiveId}
+      name: updateperspective
+      operations:
+      - method: PUT
+        name: updateperspective
+        description: Update a perspective
+        call: harness-cloud-cost.updateperspective
+        with:
+          perspectiveId: rest.perspectiveId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ccm/api/perspective/{perspectiveId}
+      name: deleteperspective
+      operations:
+      - method: DELETE
+        name: deleteperspective
+        description: Delete a perspective
+        call: harness-cloud-cost.deleteperspective
+        with:
+          perspectiveId: rest.perspectiveId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ccm/api/budgets
+      name: listbudgets
+      operations:
+      - method: GET
+        name: listbudgets
+        description: List budgets
+        call: harness-cloud-cost.listbudgets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ccm/api/budgets
+      name: createbudget
+      operations:
+      - method: POST
+        name: createbudget
+        description: Create a budget
+        call: harness-cloud-cost.createbudget
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ccm/api/budgets/{budgetId}
+      name: getbudget
+      operations:
+      - method: GET
+        name: getbudget
+        description: Get a budget
+        call: harness-cloud-cost.getbudget
+        with:
+          budgetId: rest.budgetId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ccm/api/budgets/{budgetId}
+      name: updatebudget
+      operations:
+      - method: PUT
+        name: updatebudget
+        description: Update a budget
+        call: harness-cloud-cost.updatebudget
+        with:
+          budgetId: rest.budgetId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ccm/api/budgets/{budgetId}
+      name: deletebudget
+      operations:
+      - method: DELETE
+        name: deletebudget
+        description: Delete a budget
+        call: harness-cloud-cost.deletebudget
+        with:
+          budgetId: rest.budgetId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ccm/api/recommendation/overview/list
+      name: listrecommendations
+      operations:
+      - method: GET
+        name: listrecommendations
+        description: List cost recommendations
+        call: harness-cloud-cost.listrecommendations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ccm/api/recommendation/{recommendationId}
+      name: getrecommendation
+      operations:
+      - method: GET
+        name: getrecommendation
+        description: Get a recommendation
+        call: harness-cloud-cost.getrecommendation
+        with:
+          recommendationId: rest.recommendationId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ccm/api/anomaly
+      name: listanomalies
+      operations:
+      - method: GET
+        name: listanomalies
+        description: List anomalies
+        call: harness-cloud-cost.listanomalies
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ccm/api/anomaly/{anomalyId}
+      name: getanomaly
+      operations:
+      - method: GET
+        name: getanomaly
+        description: Get an anomaly
+        call: harness-cloud-cost.getanomaly
+        with:
+          anomalyId: rest.anomalyId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ccm/api/business-mapping
+      name: listcostcategories
+      operations:
+      - method: GET
+        name: listcostcategories
+        description: List cost categories
+        call: harness-cloud-cost.listcostcategories
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ccm/api/business-mapping
+      name: createcostcategory
+      operations:
+      - method: POST
+        name: createcostcategory
+        description: Create a cost category
+        call: harness-cloud-cost.createcostcategory
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ng/api/connectors
+      name: listconnectors
+      operations:
+      - method: GET
+        name: listconnectors
+        description: List connectors
+        call: harness-cloud-cost.listconnectors
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: harness-cloud-cost-mcp
+    transport: http
+    description: MCP adapter for Harness Cloud Cost Management API for AI agent use.
+    tools:
+    - name: listperspectives
+      description: List perspectives
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost.listperspectives
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createperspective
+      description: Create a perspective
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: harness-cloud-cost.createperspective
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getperspective
+      description: Get a perspective
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost.getperspective
+      with:
+        perspectiveId: tools.perspectiveId
+      inputParameters:
+      - name: perspectiveId
+        type: string
+        description: perspectiveId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updateperspective
+      description: Update a perspective
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost.updateperspective
+      with:
+        perspectiveId: tools.perspectiveId
+      inputParameters:
+      - name: perspectiveId
+        type: string
+        description: perspectiveId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteperspective
+      description: Delete a perspective
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: harness-cloud-cost.deleteperspective
+      with:
+        perspectiveId: tools.perspectiveId
+      inputParameters:
+      - name: perspectiveId
+        type: string
+        description: perspectiveId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listbudgets
+      description: List budgets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost.listbudgets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createbudget
+      description: Create a budget
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: harness-cloud-cost.createbudget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getbudget
+      description: Get a budget
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost.getbudget
+      with:
+        budgetId: tools.budgetId
+      inputParameters:
+      - name: budgetId
+        type: string
+        description: budgetId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatebudget
+      description: Update a budget
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost.updatebudget
+      with:
+        budgetId: tools.budgetId
+      inputParameters:
+      - name: budgetId
+        type: string
+        description: budgetId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletebudget
+      description: Delete a budget
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: harness-cloud-cost.deletebudget
+      with:
+        budgetId: tools.budgetId
+      inputParameters:
+      - name: budgetId
+        type: string
+        description: budgetId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listrecommendations
+      description: List cost recommendations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost.listrecommendations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getrecommendation
+      description: Get a recommendation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost.getrecommendation
+      with:
+        recommendationId: tools.recommendationId
+      inputParameters:
+      - name: recommendationId
+        type: string
+        description: recommendationId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listanomalies
+      description: List anomalies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost.listanomalies
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getanomaly
+      description: Get an anomaly
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost.getanomaly
+      with:
+        anomalyId: tools.anomalyId
+      inputParameters:
+      - name: anomalyId
+        type: string
+        description: anomalyId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listcostcategories
+      description: List cost categories
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost.listcostcategories
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createcostcategory
+      description: Create a cost category
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: harness-cloud-cost.createcostcategory
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listconnectors
+      description: List connectors
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost.listconnectors
+      with:
+        type: tools.type
+      inputParameters:
+      - name: type
+        type: string
+        description: type
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    HARNESS_CLOUD_COST_TOKEN: HARNESS_CLOUD_COST_TOKEN
