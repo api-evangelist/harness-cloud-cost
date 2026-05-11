@@ -57,6 +57,29 @@ common:
     url: https://www.harness.io/pricing
   - type: Status
     url: https://status.harness.io
+  - type: Integrations
+    url: https://www.harness.io/partners
+integrations:
+  - name: harness
+  - name: Continuous Delivery & GitOps
+  - name: Continuous Integration
+  - name: Internal Developer Portal
+  - name: Infrastructure as Code Management
+  - name: Database DevOps
+  - name: Artifact Registry
+  - name: Feature Management & Experimentation
+  - name: Resilience Testing
+  - name: AI Test Automation
+  - name: AI SRE
+  - name: Application Security Testing
+  - name: Web Application & API Protection
+  - name: AI Security
+  - name: Cloud Cost Management
+  - name: Software Engineering Insights
+  - name: Badge labeled Digital Transformations
+  - name: Badge labeled Cloud Migrations
+  - name: Badge labeled DevSecOps
+  - name: Badge labeled harness certified expert
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
