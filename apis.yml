@@ -36,9 +36,9 @@ apis:
     properties:
       - type: Documentation
         url: https://developer.harness.io/docs/cloud-cost-management
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developer.harness.io/docs/cloud-cost-management/get-started/overview
-      - type: API Reference
+      - type: APIReference
         url: https://apidocs.harness.io/
       - type: OpenAPI
         url: >-
@@ -51,11 +51,11 @@ common:
     url: https://www.harness.io/products/cloud-cost
   - type: Documentation
     url: https://developer.harness.io/docs/cloud-cost-management
-  - type: API Reference
+  - type: APIReference
     url: https://apidocs.harness.io/
   - type: Pricing
     url: https://www.harness.io/pricing
-  - type: Status
+  - type: StatusPage
     url: https://status.harness.io
   - type: Integrations
     url: https://www.harness.io/partners
