@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Harness Cloud Cost Management API — Connectors
+  description: 'Harness Cloud Cost Management API — Connectors. 1 operations. Lead operation: List connectors. Self-contained
+    Naftiko capability covering one Harness Cloud Cost business surface.'
+  tags:
+  - Harness Cloud Cost
+  - Connectors
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    HARNESS_CLOUD_COST_API_KEY: HARNESS_CLOUD_COST_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: harness-cloud-cost-connectors
+    baseUri: https://app.harness.io
+    description: Harness Cloud Cost Management API — Connectors business capability. Self-contained, no shared references.
+    resources:
+    - name: ng-api-connectors
+      path: /ng/api/connectors
+      operations:
+      - name: listconnectors
+        method: GET
+        description: List connectors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: type
+          in: query
+          type: string
+    authentication:
+      type: apikey
+      key: x-api-key
+      value: '{{env.HARNESS_CLOUD_COST_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: harness-cloud-cost-connectors-rest
+    port: 8080
+    description: REST adapter for Harness Cloud Cost Management API — Connectors. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/ng/api/connectors
+      name: ng-api-connectors
+      description: REST surface for ng-api-connectors.
+      operations:
+      - method: GET
+        name: listconnectors
+        description: List connectors
+        call: harness-cloud-cost-connectors.listconnectors
+        with:
+          type: rest.type
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: harness-cloud-cost-connectors-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Harness Cloud Cost Management API — Connectors. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-connectors
+      description: List connectors
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost-connectors.listconnectors
+      with:
+        type: tools.type
+      outputParameters:
+      - type: object
+        mapping: $.

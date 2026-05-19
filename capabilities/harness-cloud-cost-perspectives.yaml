@@ -1,0 +1,223 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Harness Cloud Cost Management API — Perspectives
+  description: 'Harness Cloud Cost Management API — Perspectives. 5 operations. Lead operation: List perspectives. Self-contained
+    Naftiko capability covering one Harness Cloud Cost business surface.'
+  tags:
+  - Harness Cloud Cost
+  - Perspectives
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    HARNESS_CLOUD_COST_API_KEY: HARNESS_CLOUD_COST_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: harness-cloud-cost-perspectives
+    baseUri: https://app.harness.io
+    description: Harness Cloud Cost Management API — Perspectives business capability. Self-contained, no shared references.
+    resources:
+    - name: ccm-api-perspective
+      path: /ccm/api/perspective
+      operations:
+      - name: listperspectives
+        method: GET
+        description: List perspectives
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createperspective
+        method: POST
+        description: Create a perspective
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: ccm-api-perspective-perspectiveId
+      path: /ccm/api/perspective/{perspectiveId}
+      operations:
+      - name: getperspective
+        method: GET
+        description: Get a perspective
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: perspectiveId
+          in: path
+          type: string
+          required: true
+      - name: updateperspective
+        method: PUT
+        description: Update a perspective
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: perspectiveId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteperspective
+        method: DELETE
+        description: Delete a perspective
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: perspectiveId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: x-api-key
+      value: '{{env.HARNESS_CLOUD_COST_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: harness-cloud-cost-perspectives-rest
+    port: 8080
+    description: REST adapter for Harness Cloud Cost Management API — Perspectives. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/ccm/api/perspective
+      name: ccm-api-perspective
+      description: REST surface for ccm-api-perspective.
+      operations:
+      - method: GET
+        name: listperspectives
+        description: List perspectives
+        call: harness-cloud-cost-perspectives.listperspectives
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createperspective
+        description: Create a perspective
+        call: harness-cloud-cost-perspectives.createperspective
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ccm/api/perspective/{perspectiveid}
+      name: ccm-api-perspective-perspectiveid
+      description: REST surface for ccm-api-perspective-perspectiveId.
+      operations:
+      - method: GET
+        name: getperspective
+        description: Get a perspective
+        call: harness-cloud-cost-perspectives.getperspective
+        with:
+          perspectiveId: rest.perspectiveId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateperspective
+        description: Update a perspective
+        call: harness-cloud-cost-perspectives.updateperspective
+        with:
+          perspectiveId: rest.perspectiveId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteperspective
+        description: Delete a perspective
+        call: harness-cloud-cost-perspectives.deleteperspective
+        with:
+          perspectiveId: rest.perspectiveId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: harness-cloud-cost-perspectives-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Harness Cloud Cost Management API — Perspectives. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: list-perspectives
+      description: List perspectives
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost-perspectives.listperspectives
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-perspective
+      description: Create a perspective
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: harness-cloud-cost-perspectives.createperspective
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-perspective
+      description: Get a perspective
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost-perspectives.getperspective
+      with:
+        perspectiveId: tools.perspectiveId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-perspective
+      description: Update a perspective
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost-perspectives.updateperspective
+      with:
+        perspectiveId: tools.perspectiveId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-perspective
+      description: Delete a perspective
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: harness-cloud-cost-perspectives.deleteperspective
+      with:
+        perspectiveId: tools.perspectiveId
+      outputParameters:
+      - type: object
+        mapping: $.

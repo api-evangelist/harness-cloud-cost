@@ -1,0 +1,107 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Harness Cloud Cost Management API — Cost Categories
+  description: 'Harness Cloud Cost Management API — Cost Categories. 2 operations. Lead operation: List cost categories. Self-contained
+    Naftiko capability covering one Harness Cloud Cost business surface.'
+  tags:
+  - Harness Cloud Cost
+  - Cost Categories
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    HARNESS_CLOUD_COST_API_KEY: HARNESS_CLOUD_COST_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: harness-cloud-cost-cost-categories
+    baseUri: https://app.harness.io
+    description: Harness Cloud Cost Management API — Cost Categories business capability. Self-contained, no shared references.
+    resources:
+    - name: ccm-api-business-mapping
+      path: /ccm/api/business-mapping
+      operations:
+      - name: listcostcategories
+        method: GET
+        description: List cost categories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcostcategory
+        method: POST
+        description: Create a cost category
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-api-key
+      value: '{{env.HARNESS_CLOUD_COST_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: harness-cloud-cost-cost-categories-rest
+    port: 8080
+    description: REST adapter for Harness Cloud Cost Management API — Cost Categories. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/ccm/api/business-mapping
+      name: ccm-api-business-mapping
+      description: REST surface for ccm-api-business-mapping.
+      operations:
+      - method: GET
+        name: listcostcategories
+        description: List cost categories
+        call: harness-cloud-cost-cost-categories.listcostcategories
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcostcategory
+        description: Create a cost category
+        call: harness-cloud-cost-cost-categories.createcostcategory
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: harness-cloud-cost-cost-categories-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Harness Cloud Cost Management API — Cost Categories. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: list-cost-categories
+      description: List cost categories
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: harness-cloud-cost-cost-categories.listcostcategories
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-cost-category
+      description: Create a cost category
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: harness-cloud-cost-cost-categories.createcostcategory
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
