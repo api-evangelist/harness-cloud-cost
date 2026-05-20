@@ -6,84 +6,86 @@ description: Harness Cloud Cost Management (CCM) provides intelligent cloud cost
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-- Anomaly Detection
-- Budgets
-- Cloud Cost Management
-- FinOps
-- Kubernetes
-- Recommendations
+  - Anomaly Detection
+  - Budgets
+  - Cloud Cost Management
+  - FinOps
+  - Kubernetes
+  - Recommendations
 url: https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/apis.yml
 created: '2026-03-27'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: harness-cloud-cost:harness-cloud-cost
-  name: Harness Cloud Cost Management API
-  description: The Harness CCM API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection,
-    AI-driven recommendations, cost categories (chargeback / showback), and cloud connector configuration across AWS, Azure,
-    GCP, and Kubernetes.
-  humanURL: https://www.harness.io/products/cloud-cost
-  baseURL: https://app.harness.io
-  tags:
-  - Cloud Cost Management
-  - FinOps
-  properties:
+  - aid: harness-cloud-cost:harness-cloud-cost
+    name: Harness Cloud Cost Management API
+    description: The Harness CCM API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection,
+      AI-driven recommendations, cost categories (chargeback / showback), and cloud connector configuration across AWS, Azure,
+      GCP, and Kubernetes.
+    humanURL: https://www.harness.io/products/cloud-cost
+    baseURL: https://app.harness.io
+    tags:
+    - Cloud Cost Management
+    - FinOps
+    properties:
+    - type: Documentation
+      url: https://developer.harness.io/docs/cloud-cost-management
+    - type: GettingStarted
+      url: https://developer.harness.io/docs/cloud-cost-management/get-started/overview
+    - type: APIReference
+      url: https://apidocs.harness.io/
+    - type: OpenAPI
+      url: https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/openapi/harness-cloud-cost-openapi.yml
+    - type: Rules
+      url: https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/rules/harness-cloud-cost-rules.yml
+    - type: NaftikoCapability
+      url: capabilities/harness-cloud-cost-anomalies.yaml
+    - type: NaftikoCapability
+      url: capabilities/harness-cloud-cost-budgets.yaml
+    - type: NaftikoCapability
+      url: capabilities/harness-cloud-cost-connectors.yaml
+    - type: NaftikoCapability
+      url: capabilities/harness-cloud-cost-cost-categories.yaml
+    - type: NaftikoCapability
+      url: capabilities/harness-cloud-cost-perspectives.yaml
+    - type: NaftikoCapability
+      url: capabilities/harness-cloud-cost-recommendations.yaml
+common:
+  - type: GitHubOrganization
+    url: https://github.com/harness
+  - type: Website
+    url: https://www.harness.io/products/cloud-cost
   - type: Documentation
     url: https://developer.harness.io/docs/cloud-cost-management
-  - type: GettingStarted
-    url: https://developer.harness.io/docs/cloud-cost-management/get-started/overview
   - type: APIReference
     url: https://apidocs.harness.io/
-  - type: OpenAPI
-    url: https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/openapi/harness-cloud-cost-openapi.yml
-  - type: Rules
-    url: https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/rules/harness-cloud-cost-rules.yml
-  - type: NaftikoCapability
-    url: capabilities/harness-cloud-cost-anomalies.yaml
-  - type: NaftikoCapability
-    url: capabilities/harness-cloud-cost-budgets.yaml
-  - type: NaftikoCapability
-    url: capabilities/harness-cloud-cost-connectors.yaml
-  - type: NaftikoCapability
-    url: capabilities/harness-cloud-cost-cost-categories.yaml
-  - type: NaftikoCapability
-    url: capabilities/harness-cloud-cost-perspectives.yaml
-  - type: NaftikoCapability
-    url: capabilities/harness-cloud-cost-recommendations.yaml
-common:
-- type: Website
-  url: https://www.harness.io/products/cloud-cost
-- type: Documentation
-  url: https://developer.harness.io/docs/cloud-cost-management
-- type: APIReference
-  url: https://apidocs.harness.io/
-- type: Pricing
-  url: https://www.harness.io/pricing
-- type: StatusPage
-  url: https://status.harness.io
-- type: Integrations
-  url: https://www.harness.io/partners
+  - type: Pricing
+    url: https://www.harness.io/pricing
+  - type: StatusPage
+    url: https://status.harness.io
+  - type: Integrations
+    url: https://www.harness.io/partners
 integrations:
-- name: harness
-- name: Continuous Delivery & GitOps
-- name: Continuous Integration
-- name: Internal Developer Portal
-- name: Infrastructure as Code Management
-- name: Database DevOps
-- name: Artifact Registry
-- name: Feature Management & Experimentation
-- name: Resilience Testing
-- name: AI Test Automation
-- name: AI SRE
-- name: Application Security Testing
-- name: Web Application & API Protection
-- name: AI Security
-- name: Cloud Cost Management
-- name: Software Engineering Insights
-- name: Badge labeled Digital Transformations
-- name: Badge labeled Cloud Migrations
-- name: Badge labeled DevSecOps
-- name: Badge labeled harness certified expert
+  - name: harness
+  - name: Continuous Delivery & GitOps
+  - name: Continuous Integration
+  - name: Internal Developer Portal
+  - name: Infrastructure as Code Management
+  - name: Database DevOps
+  - name: Artifact Registry
+  - name: Feature Management & Experimentation
+  - name: Resilience Testing
+  - name: AI Test Automation
+  - name: AI SRE
+  - name: Application Security Testing
+  - name: Web Application & API Protection
+  - name: AI Security
+  - name: Cloud Cost Management
+  - name: Software Engineering Insights
+  - name: Badge labeled Digital Transformations
+  - name: Badge labeled Cloud Migrations
+  - name: Badge labeled DevSecOps
+  - name: Badge labeled harness certified expert
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
