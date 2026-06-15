@@ -1,0 +1,454 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harness Cloud Cost Management API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Perspectives",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List perspectives",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.harness.io/ccm/api/perspective",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              }
+            ]
+          },
+          "docs": "Returns a list of cost perspectives configured in the account."
+        },
+        {
+          "info": {
+            "name": "Create a perspective",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.harness.io/ccm/api/perspective",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new cost perspective."
+        },
+        {
+          "info": {
+            "name": "Get a perspective",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.harness.io/ccm/api/perspective/:perspectiveId",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              },
+              {
+                "name": "perspectiveId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a perspective"
+        },
+        {
+          "info": {
+            "name": "Update a perspective",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.harness.io/ccm/api/perspective/:perspectiveId",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              },
+              {
+                "name": "perspectiveId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a perspective"
+        },
+        {
+          "info": {
+            "name": "Delete a perspective",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.harness.io/ccm/api/perspective/:perspectiveId",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              },
+              {
+                "name": "perspectiveId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a perspective"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Budgets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List budgets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.harness.io/ccm/api/budgets",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              }
+            ]
+          },
+          "docs": "Returns the budgets configured in the account."
+        },
+        {
+          "info": {
+            "name": "Create a budget",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.harness.io/ccm/api/budgets",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a budget"
+        },
+        {
+          "info": {
+            "name": "Get a budget",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.harness.io/ccm/api/budgets/:budgetId",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              },
+              {
+                "name": "budgetId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a budget"
+        },
+        {
+          "info": {
+            "name": "Update a budget",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.harness.io/ccm/api/budgets/:budgetId",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              },
+              {
+                "name": "budgetId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a budget"
+        },
+        {
+          "info": {
+            "name": "Delete a budget",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.harness.io/ccm/api/budgets/:budgetId",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              },
+              {
+                "name": "budgetId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a budget"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Recommendations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List cost recommendations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.harness.io/ccm/api/recommendation/overview/list",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              }
+            ]
+          },
+          "docs": "Returns CCM recommendations for cost savings."
+        },
+        {
+          "info": {
+            "name": "Get a recommendation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.harness.io/ccm/api/recommendation/:recommendationId",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              },
+              {
+                "name": "recommendationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a recommendation"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Anomalies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List anomalies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.harness.io/ccm/api/anomaly",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              }
+            ]
+          },
+          "docs": "Returns the cost anomalies detected in the account."
+        },
+        {
+          "info": {
+            "name": "Get an anomaly",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.harness.io/ccm/api/anomaly/:anomalyId",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              },
+              {
+                "name": "anomalyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an anomaly"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cost Categories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List cost categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.harness.io/ccm/api/business-mapping",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              }
+            ]
+          },
+          "docs": "Returns cost categories (business mappings) used for chargeback and showback."
+        },
+        {
+          "info": {
+            "name": "Create a cost category",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.harness.io/ccm/api/business-mapping",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a cost category"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Connectors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List connectors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.harness.io/ng/api/connectors",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the connectors (cloud accounts and Kubernetes clusters) used for cost ingestion."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

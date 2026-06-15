@@ -1,0 +1,1914 @@
+{
+  "item": [
+    {
+      "id": "cca0c74a-28b9-4ca3-a7a2-82c879150053",
+      "name": "Perspectives",
+      "description": {
+        "content": "Group and analyze cloud cost data through customizable views.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fadcb971-6181-4893-aceb-3092298c7972",
+          "name": "List perspectives",
+          "request": {
+            "name": "List perspectives",
+            "description": {
+              "content": "Returns a list of cost perspectives configured in the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "perspective"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4be50be-e537-474e-b9e3-5ebb27d47d53",
+              "name": "A paged list of perspectives.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "perspective"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalCount\": 7386,\n  \"views\": [\n    {\n      \"uuid\": \"string\",\n      \"name\": \"string\",\n      \"viewType\": \"DEFAULT\",\n      \"viewState\": \"DRAFT\",\n      \"accountId\": \"string\",\n      \"folderId\": \"string\",\n      \"viewVersion\": \"string\",\n      \"viewTimeRange\": {\n        \"viewTimeRangeType\": \"LAST_7\",\n        \"startTime\": 8217,\n        \"endTime\": 1672\n      },\n      \"dataSources\": [\n        \"AWS\",\n        \"AZURE\"\n      ]\n    },\n    {\n      \"uuid\": \"string\",\n      \"name\": \"string\",\n      \"viewType\": \"CUSTOMER\",\n      \"viewState\": \"COMPLETED\",\n      \"accountId\": \"string\",\n      \"folderId\": \"string\",\n      \"viewVersion\": \"string\",\n      \"viewTimeRange\": {\n        \"viewTimeRangeType\": \"CUSTOM\",\n        \"startTime\": 6198,\n        \"endTime\": 4974\n      },\n      \"dataSources\": [\n        \"LABEL_V2\",\n        \"LABEL_V2\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5db9da29-1f1e-4c4d-87f9-876d3710e120",
+          "name": "Create a perspective",
+          "request": {
+            "name": "Create a perspective",
+            "description": {
+              "content": "Creates a new cost perspective.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "perspective"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"viewType\": \"<string>\",\n  \"viewState\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"folderId\": \"<string>\",\n  \"viewVersion\": \"<string>\",\n  \"viewTimeRange\": {\n    \"viewTimeRangeType\": \"<string>\",\n    \"startTime\": \"<long>\",\n    \"endTime\": \"<long>\"\n  },\n  \"dataSources\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "36fc94b9-d9a8-4197-aea2-71ad4cbd8665",
+              "name": "The created perspective.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "perspective"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"viewType\": \"<string>\",\n  \"viewState\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"folderId\": \"<string>\",\n  \"viewVersion\": \"<string>\",\n  \"viewTimeRange\": {\n    \"viewTimeRangeType\": \"<string>\",\n    \"startTime\": \"<long>\",\n    \"endTime\": \"<long>\"\n  },\n  \"dataSources\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"viewType\": \"<string>\",\n  \"viewState\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"folderId\": \"<string>\",\n  \"viewVersion\": \"<string>\",\n  \"viewTimeRange\": {\n    \"viewTimeRangeType\": \"<string>\",\n    \"startTime\": \"<long>\",\n    \"endTime\": \"<long>\"\n  },\n  \"dataSources\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6febac40-26cf-4fb4-86b0-5df311ca9aec",
+          "name": "Get a perspective",
+          "request": {
+            "name": "Get a perspective",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "perspective",
+                ":perspectiveId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "perspectiveId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e6600a7-3988-42c7-9ec0-be7c0da10154",
+              "name": "A single perspective.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "perspective",
+                    ":perspectiveId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "perspectiveId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"viewType\": \"<string>\",\n  \"viewState\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"folderId\": \"<string>\",\n  \"viewVersion\": \"<string>\",\n  \"viewTimeRange\": {\n    \"viewTimeRangeType\": \"<string>\",\n    \"startTime\": \"<long>\",\n    \"endTime\": \"<long>\"\n  },\n  \"dataSources\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bfb72e5a-125d-4a8f-b647-eb07eca02588",
+          "name": "Update a perspective",
+          "request": {
+            "name": "Update a perspective",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "perspective",
+                ":perspectiveId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "perspectiveId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"viewType\": \"<string>\",\n  \"viewState\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"folderId\": \"<string>\",\n  \"viewVersion\": \"<string>\",\n  \"viewTimeRange\": {\n    \"viewTimeRangeType\": \"<string>\",\n    \"startTime\": \"<long>\",\n    \"endTime\": \"<long>\"\n  },\n  \"dataSources\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9656d1ea-d95c-441b-a50f-4ded9cc7a9a3",
+              "name": "The updated perspective.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "perspective",
+                    ":perspectiveId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "perspectiveId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"viewType\": \"<string>\",\n  \"viewState\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"folderId\": \"<string>\",\n  \"viewVersion\": \"<string>\",\n  \"viewTimeRange\": {\n    \"viewTimeRangeType\": \"<string>\",\n    \"startTime\": \"<long>\",\n    \"endTime\": \"<long>\"\n  },\n  \"dataSources\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"viewType\": \"<string>\",\n  \"viewState\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"folderId\": \"<string>\",\n  \"viewVersion\": \"<string>\",\n  \"viewTimeRange\": {\n    \"viewTimeRangeType\": \"<string>\",\n    \"startTime\": \"<long>\",\n    \"endTime\": \"<long>\"\n  },\n  \"dataSources\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1c1451c-7faa-47c2-a375-fdd83d9887c4",
+          "name": "Delete a perspective",
+          "request": {
+            "name": "Delete a perspective",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "perspective",
+                ":perspectiveId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "perspectiveId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aba7afeb-cb51-4d77-9563-de462156cde3",
+              "name": "Perspective deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "perspective",
+                    ":perspectiveId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "perspectiveId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e4759f78-681e-4550-b281-0e57de24f45c",
+      "name": "Budgets",
+      "description": {
+        "content": "Define and monitor cloud spending budgets with alerts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8b9b30ce-be06-4093-b30b-f1cea7365e62",
+          "name": "List budgets",
+          "request": {
+            "name": "List budgets",
+            "description": {
+              "content": "Returns the budgets configured in the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "budgets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "18b1b90a-6bfe-40ba-9dad-e789dc295f36",
+              "name": "A list of budgets.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "budgets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"uuid\": \"string\",\n    \"name\": \"string\",\n    \"accountId\": \"string\",\n    \"type\": \"PREVIOUS_PERIOD_SPEND\",\n    \"budgetAmount\": 487.71570580819156,\n    \"actualCost\": 9.452325345493673,\n    \"forecastCost\": 214.47802601543108,\n    \"period\": \"DAILY\",\n    \"growthRate\": 8678.88494825505,\n    \"alertThresholds\": [\n      {\n        \"percentage\": 2429.5930351337593,\n        \"basedOn\": \"FORECASTED_COST\",\n        \"emailAddresses\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"percentage\": 2914.0215238396395,\n        \"basedOn\": \"FORECASTED_COST\",\n        \"emailAddresses\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"scope\": {\n      \"type\": \"APPLICATION\",\n      \"entityIds\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  },\n  {\n    \"uuid\": \"string\",\n    \"name\": \"string\",\n    \"accountId\": \"string\",\n    \"type\": \"PREVIOUS_MONTH_SPEND\",\n    \"budgetAmount\": 7118.14222480995,\n    \"actualCost\": 1673.9149394595265,\n    \"forecastCost\": 120.00273784929516,\n    \"period\": \"DAILY\",\n    \"growthRate\": 7402.700486314427,\n    \"alertThresholds\": [\n      {\n        \"percentage\": 1812.8432252373639,\n        \"basedOn\": \"ACTUAL_COST\",\n        \"emailAddresses\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"percentage\": 4226.7199351239715,\n        \"basedOn\": \"ACTUAL_COST\",\n        \"emailAddresses\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"scope\": {\n      \"type\": \"PERSPECTIVE\",\n      \"entityIds\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f10be7e-12e3-416e-b351-33a38cf558a4",
+          "name": "Create a budget",
+          "request": {
+            "name": "Create a budget",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "budgets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"budgetAmount\": \"<double>\",\n  \"actualCost\": \"<double>\",\n  \"forecastCost\": \"<double>\",\n  \"period\": \"<string>\",\n  \"growthRate\": \"<double>\",\n  \"alertThresholds\": [\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"scope\": {\n    \"type\": \"<string>\",\n    \"entityIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d8b00187-66ee-4118-bf54-581872de76a1",
+              "name": "The created budget.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "budgets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"budgetAmount\": \"<double>\",\n  \"actualCost\": \"<double>\",\n  \"forecastCost\": \"<double>\",\n  \"period\": \"<string>\",\n  \"growthRate\": \"<double>\",\n  \"alertThresholds\": [\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"scope\": {\n    \"type\": \"<string>\",\n    \"entityIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"budgetAmount\": \"<double>\",\n  \"actualCost\": \"<double>\",\n  \"forecastCost\": \"<double>\",\n  \"period\": \"<string>\",\n  \"growthRate\": \"<double>\",\n  \"alertThresholds\": [\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"scope\": {\n    \"type\": \"<string>\",\n    \"entityIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4bb79fd-7c8b-4769-a7db-b3a0a313a1ff",
+          "name": "Get a budget",
+          "request": {
+            "name": "Get a budget",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "budgets",
+                ":budgetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "budgetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af5f7796-caf4-41f2-88c6-01ab489ac9e5",
+              "name": "A single budget.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "budgets",
+                    ":budgetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "budgetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"budgetAmount\": \"<double>\",\n  \"actualCost\": \"<double>\",\n  \"forecastCost\": \"<double>\",\n  \"period\": \"<string>\",\n  \"growthRate\": \"<double>\",\n  \"alertThresholds\": [\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"scope\": {\n    \"type\": \"<string>\",\n    \"entityIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5d7d496-be52-4914-bbaa-e544b6214bf9",
+          "name": "Update a budget",
+          "request": {
+            "name": "Update a budget",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "budgets",
+                ":budgetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "budgetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"budgetAmount\": \"<double>\",\n  \"actualCost\": \"<double>\",\n  \"forecastCost\": \"<double>\",\n  \"period\": \"<string>\",\n  \"growthRate\": \"<double>\",\n  \"alertThresholds\": [\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"scope\": {\n    \"type\": \"<string>\",\n    \"entityIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "85557b31-fbba-4e46-97a6-873738043b6c",
+              "name": "The updated budget.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "budgets",
+                    ":budgetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "budgetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"budgetAmount\": \"<double>\",\n  \"actualCost\": \"<double>\",\n  \"forecastCost\": \"<double>\",\n  \"period\": \"<string>\",\n  \"growthRate\": \"<double>\",\n  \"alertThresholds\": [\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"scope\": {\n    \"type\": \"<string>\",\n    \"entityIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"budgetAmount\": \"<double>\",\n  \"actualCost\": \"<double>\",\n  \"forecastCost\": \"<double>\",\n  \"period\": \"<string>\",\n  \"growthRate\": \"<double>\",\n  \"alertThresholds\": [\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"scope\": {\n    \"type\": \"<string>\",\n    \"entityIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ee55c4e-8d5e-4a9d-ab58-6d441acb8c3b",
+          "name": "Delete a budget",
+          "request": {
+            "name": "Delete a budget",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "budgets",
+                ":budgetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "budgetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d81918be-4f17-44f1-8d67-9f8ad29dd653",
+              "name": "Budget deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "budgets",
+                    ":budgetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "budgetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9b034d48-00a4-4f53-be8f-1669b778c4e0",
+      "name": "Recommendations",
+      "description": {
+        "content": "AI-driven recommendations for cloud cost optimization.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "75b14c1a-5379-47f2-8c8c-51ecc045b909",
+          "name": "List cost recommendations",
+          "request": {
+            "name": "List cost recommendations",
+            "description": {
+              "content": "Returns CCM recommendations for cost savings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "recommendation",
+                "overview",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4681d0b-53c6-473c-bf20-52c78ff3b1e7",
+              "name": "A list of recommendations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "recommendation",
+                    "overview",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"clusterName\": \"string\",\n    \"namespace\": \"string\",\n    \"resourceName\": \"string\",\n    \"resourceType\": \"EC2_INSTANCE\",\n    \"monthlyCost\": 2827.6961237099185,\n    \"monthlySaving\": 3590.5678989094836,\n    \"recommendationDetails\": {\n      \"key_0\": 1481,\n      \"key_1\": \"string\"\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"clusterName\": \"string\",\n    \"namespace\": \"string\",\n    \"resourceName\": \"string\",\n    \"resourceType\": \"ECS_SERVICE\",\n    \"monthlyCost\": 3976.8180348029114,\n    \"monthlySaving\": 8353.682536844444,\n    \"recommendationDetails\": {\n      \"key_0\": 429.0281070829738,\n      \"key_1\": false\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3cc588a6-ce2f-40cf-8cae-0558226e7a92",
+          "name": "Get a recommendation",
+          "request": {
+            "name": "Get a recommendation",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "recommendation",
+                ":recommendationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recommendationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab076739-ccad-4382-b42a-6851d421faaa",
+              "name": "Recommendation detail.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "recommendation",
+                    ":recommendationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recommendationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"clusterName\": \"string\",\n  \"namespace\": \"string\",\n  \"resourceName\": \"string\",\n  \"resourceType\": \"GOVERNANCE\",\n  \"monthlyCost\": 1699.4690871256757,\n  \"monthlySaving\": 7594.102757491581,\n  \"recommendationDetails\": {\n    \"key_0\": 4671.45790832524,\n    \"key_1\": \"string\",\n    \"key_2\": 1812\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "27b348c7-e99f-42f8-a0b8-e5b19d427d61",
+      "name": "Anomalies",
+      "description": {
+        "content": "Detect and review unusual cost patterns and anomalies.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "144ad315-d818-4a28-91ff-2d4f0c0ced30",
+          "name": "List anomalies",
+          "request": {
+            "name": "List anomalies",
+            "description": {
+              "content": "Returns the cost anomalies detected in the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "anomaly"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6cc30139-d944-4ed1-b9ce-5316c995740c",
+              "name": "A list of anomalies.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "anomaly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"accountId\": \"string\",\n    \"actualCost\": 433.7502471536647,\n    \"expectedCost\": 1518.0532820620629,\n    \"anomalyScore\": 7073.82880552429,\n    \"anomalyTime\": 9169,\n    \"cloudProvider\": \"GCP\",\n    \"resourceName\": \"string\",\n    \"resourceInfo\": \"string\",\n    \"userFeedback\": \"TRUE_ANOMALY\"\n  },\n  {\n    \"id\": \"string\",\n    \"accountId\": \"string\",\n    \"actualCost\": 9127.04539775284,\n    \"expectedCost\": 5031.397097874092,\n    \"anomalyScore\": 6508.413912633298,\n    \"anomalyTime\": 9372,\n    \"cloudProvider\": \"AZURE\",\n    \"resourceName\": \"string\",\n    \"resourceInfo\": \"string\",\n    \"userFeedback\": \"NOT_RESPONDED\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f28f19d8-abd9-49df-9e80-9117f5c300df",
+          "name": "Get an anomaly",
+          "request": {
+            "name": "Get an anomaly",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "anomaly",
+                ":anomalyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "anomalyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb7d0e65-9f9f-4c65-a85c-e8de754f848f",
+              "name": "A single anomaly.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "anomaly",
+                    ":anomalyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "anomalyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"accountId\": \"string\",\n  \"actualCost\": 5396.09902040011,\n  \"expectedCost\": 3313.64609006675,\n  \"anomalyScore\": 8972.92838142832,\n  \"anomalyTime\": 9819,\n  \"cloudProvider\": \"AWS\",\n  \"resourceName\": \"string\",\n  \"resourceInfo\": \"string\",\n  \"userFeedback\": \"FALSE_ANOMALY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "11eeb8bf-fe0c-4710-ba3d-a723bbd9cc6f",
+      "name": "Cost Categories",
+      "description": {
+        "content": "Allocate and chargeback cloud costs by business units.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "74c2e892-fde8-4fa6-b3ff-80a7b8346503",
+          "name": "List cost categories",
+          "request": {
+            "name": "List cost categories",
+            "description": {
+              "content": "Returns cost categories (business mappings) used for chargeback and showback.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "business-mapping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6d141099-5da4-4603-9a52-864dc5f8e4ac",
+              "name": "A list of cost categories.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "business-mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"uuid\": \"string\",\n    \"name\": \"string\",\n    \"accountId\": \"string\",\n    \"costTargets\": [\n      {\n        \"name\": \"string\",\n        \"rules\": [\n          {\n            \"key_0\": false,\n            \"key_1\": 3273.0119052164673,\n            \"key_2\": true\n          },\n          {\n            \"key_0\": true,\n            \"key_1\": \"string\",\n            \"key_2\": 79\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"rules\": [\n          {\n            \"key_0\": \"string\",\n            \"key_1\": false,\n            \"key_2\": 6990\n          },\n          {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"sharedCosts\": [\n      {\n        \"key_0\": false\n      },\n      {\n        \"key_0\": 8778\n      }\n    ],\n    \"unallocatedCost\": {\n      \"key_0\": 3980.8155723861314,\n      \"key_1\": 923,\n      \"key_2\": 4723.6361953171945\n    }\n  },\n  {\n    \"uuid\": \"string\",\n    \"name\": \"string\",\n    \"accountId\": \"string\",\n    \"costTargets\": [\n      {\n        \"name\": \"string\",\n        \"rules\": [\n          {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": 3415\n          },\n          {\n            \"key_0\": 919\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"rules\": [\n          {\n            \"key_0\": 6080\n          },\n          {\n            \"key_0\": 2171.387887387507,\n            \"key_1\": 853,\n            \"key_2\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"sharedCosts\": [\n      {\n        \"key_0\": 3078.596487312997,\n        \"key_1\": true\n      },\n      {\n        \"key_0\": 3567.4382746526367\n      }\n    ],\n    \"unallocatedCost\": {\n      \"key_0\": true\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0e40a49-a767-4e9e-a678-79cb3009d7cd",
+          "name": "Create a cost category",
+          "request": {
+            "name": "Create a cost category",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "business-mapping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"costTargets\": [\n    {\n      \"name\": \"<string>\",\n      \"rules\": [\n        {\n          \"key_0\": 4413.602320627189,\n          \"key_1\": 225\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": 4488\n        }\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"rules\": [\n        {\n          \"key_0\": 4135.395016184268\n        },\n        {\n          \"key_0\": true,\n          \"key_1\": 2196.1178170723083\n        }\n      ]\n    }\n  ],\n  \"sharedCosts\": [\n    {\n      \"key_0\": true,\n      \"key_1\": \"string\",\n      \"key_2\": 5665.687436500602,\n      \"key_3\": 1532.3853759648653\n    },\n    {\n      \"key_0\": true,\n      \"key_1\": \"string\",\n      \"key_2\": false,\n      \"key_3\": 7527.213891428567\n    }\n  ],\n  \"unallocatedCost\": {\n    \"key_0\": 7469,\n    \"key_1\": 8853.255815635259\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57d41bf1-8a21-4820-8fd4-d69baad410a9",
+              "name": "The created cost category.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "business-mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"costTargets\": [\n    {\n      \"name\": \"<string>\",\n      \"rules\": [\n        {\n          \"key_0\": 3582,\n          \"key_1\": \"string\"\n        },\n        {\n          \"key_0\": 8199.392865896853\n        }\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"rules\": [\n        {\n          \"key_0\": 1733\n        },\n        {\n          \"key_0\": 4304\n        }\n      ]\n    }\n  ],\n  \"sharedCosts\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 3141\n    }\n  ],\n  \"unallocatedCost\": {\n    \"key_0\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"costTargets\": [\n    {\n      \"name\": \"<string>\",\n      \"rules\": [\n        {\n          \"key_0\": 3582,\n          \"key_1\": \"string\"\n        },\n        {\n          \"key_0\": 8199.392865896853\n        }\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"rules\": [\n        {\n          \"key_0\": 1733\n        },\n        {\n          \"key_0\": 4304\n        }\n      ]\n    }\n  ],\n  \"sharedCosts\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 3141\n    }\n  ],\n  \"unallocatedCost\": {\n    \"key_0\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a375ab68-4286-4dc3-b3f9-bf802e9a05c2",
+      "name": "Connectors",
+      "description": {
+        "content": "Manage cloud provider and Kubernetes connectors for cost ingestion.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5ddb256b-8830-4654-ada0-b45bff4d9daf",
+          "name": "List connectors",
+          "request": {
+            "name": "List connectors",
+            "description": {
+              "content": "Returns the connectors (cloud accounts and Kubernetes clusters) used for cost ingestion.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ng",
+                "api",
+                "connectors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "910611ca-2393-4c42-bd9f-2d9c1db50667",
+              "name": "A list of connectors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ng",
+                    "api",
+                    "connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "CEAws"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"CEAzure\",\n    \"spec\": {\n      \"key_0\": 8237,\n      \"key_1\": false\n    }\n  },\n  {\n    \"identifier\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"CEAzure\",\n    \"spec\": {\n      \"key_0\": true,\n      \"key_1\": 8168.679860846456\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.harness.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8b7e1960-7051-4f36-b62e-c82eb620a01a",
+    "name": "Harness Cloud Cost Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Harness Cloud Cost Management (CCM) API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection, and AI-driven recommendations across AWS, Azure, GCP, and Kubernetes environments. CCM enables FinOps practices by exposing granular cost details across namespaces, nodes, pods, accounts, and services.\n\nContact Support:\n Name: Harness Support\n Email: support@harness.io",
+      "type": "text/plain"
+    }
+  }
+}
