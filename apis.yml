@@ -58,7 +58,7 @@ common:
     url: https://status.harness.io
   - type: Integrations
     url: https://www.harness.io/partners
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://apidocs.harness.io/llms.txt
 integrations:
   - name: harness
