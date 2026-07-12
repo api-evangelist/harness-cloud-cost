@@ -44,6 +44,14 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/rules/harness-cloud-cost-rules.yml
 common:
+  - type: TrustCenter
+    url: security/harness-cloud-cost-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/harness-cloud-cost-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/harness-cloud-cost-domain-security.yml
+  - type: Authentication
+    url: authentication/harness-cloud-cost-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/harness
   - type: Website
@@ -60,6 +68,8 @@ common:
     url: https://www.harness.io/partners
   - type: LlmsText
     url: https://apidocs.harness.io/llms.txt
+  - url: https://www.harness.io/blog/rss.xml
+    type: Blog
 integrations:
   - name: harness
   - name: Continuous Delivery & GitOps
