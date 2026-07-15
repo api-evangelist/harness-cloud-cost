@@ -44,6 +44,8 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/rules/harness-cloud-cost-rules.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/harness-cloud-cost-agentic-access.yml
   - type: TrustCenter
     url: security/harness-cloud-cost-trust-center.yml
   - type: VulnerabilityDisclosure
