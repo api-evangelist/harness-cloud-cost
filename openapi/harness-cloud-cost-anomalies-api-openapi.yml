@@ -1,0 +1,111 @@
+openapi: 3.0.3
+info:
+  title: Harness Cloud Cost Management Anomalies API
+  description: The Harness Cloud Cost Management (CCM) API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection, and AI-driven recommendations across AWS, Azure, GCP, and Kubernetes environments. CCM enables FinOps practices by exposing granular cost details across namespaces, nodes, pods, accounts, and services.
+  version: '1.0'
+  contact:
+    name: Harness Support
+    url: https://developer.harness.io/docs/cloud-cost-management
+    email: support@harness.io
+  license:
+    name: Harness Terms of Service
+    url: https://harness.io/legal/terms
+servers:
+- url: https://app.harness.io
+  description: Harness production endpoint
+security:
+- ApiKeyAuth: []
+tags:
+- name: Anomalies
+  description: Detect and review unusual cost patterns and anomalies.
+paths:
+  /ccm/api/anomaly:
+    get:
+      tags:
+      - Anomalies
+      summary: List anomalies
+      description: Returns the cost anomalies detected in the account.
+      operationId: listAnomalies
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      responses:
+        '200':
+          description: A list of anomalies.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Anomaly'
+  /ccm/api/anomaly/{anomalyId}:
+    get:
+      tags:
+      - Anomalies
+      summary: Get an anomaly
+      operationId: getAnomaly
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      - name: anomalyId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A single anomaly.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Anomaly'
+components:
+  schemas:
+    Anomaly:
+      type: object
+      properties:
+        id:
+          type: string
+        accountId:
+          type: string
+        actualCost:
+          type: number
+          format: double
+        expectedCost:
+          type: number
+          format: double
+        anomalyScore:
+          type: number
+          format: double
+        anomalyTime:
+          type: integer
+          format: int64
+        cloudProvider:
+          type: string
+          enum:
+          - AWS
+          - AZURE
+          - GCP
+          - CLUSTER
+        resourceName:
+          type: string
+        resourceInfo:
+          type: string
+        userFeedback:
+          type: string
+          enum:
+          - TRUE_ANOMALY
+          - FALSE_ANOMALY
+          - NOT_RESPONDED
+  parameters:
+    AccountIdentifier:
+      name: accountIdentifier
+      in: query
+      required: true
+      schema:
+        type: string
+      description: The Harness account identifier.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Harness Personal Access Token or Service Account API key.

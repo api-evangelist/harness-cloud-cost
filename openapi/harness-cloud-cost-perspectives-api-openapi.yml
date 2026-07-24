@@ -1,0 +1,198 @@
+openapi: 3.0.3
+info:
+  title: Harness Cloud Cost Management Anomalies Perspectives API
+  description: The Harness Cloud Cost Management (CCM) API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection, and AI-driven recommendations across AWS, Azure, GCP, and Kubernetes environments. CCM enables FinOps practices by exposing granular cost details across namespaces, nodes, pods, accounts, and services.
+  version: '1.0'
+  contact:
+    name: Harness Support
+    url: https://developer.harness.io/docs/cloud-cost-management
+    email: support@harness.io
+  license:
+    name: Harness Terms of Service
+    url: https://harness.io/legal/terms
+servers:
+- url: https://app.harness.io
+  description: Harness production endpoint
+security:
+- ApiKeyAuth: []
+tags:
+- name: Perspectives
+  description: Group and analyze cloud cost data through customizable views.
+paths:
+  /ccm/api/perspective:
+    get:
+      tags:
+      - Perspectives
+      summary: List perspectives
+      description: Returns a list of cost perspectives configured in the account.
+      operationId: listPerspectives
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      responses:
+        '200':
+          description: A paged list of perspectives.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PerspectiveList'
+    post:
+      tags:
+      - Perspectives
+      summary: Create a perspective
+      description: Creates a new cost perspective.
+      operationId: createPerspective
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Perspective'
+      responses:
+        '200':
+          description: The created perspective.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Perspective'
+  /ccm/api/perspective/{perspectiveId}:
+    get:
+      tags:
+      - Perspectives
+      summary: Get a perspective
+      operationId: getPerspective
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      - name: perspectiveId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A single perspective.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Perspective'
+    put:
+      tags:
+      - Perspectives
+      summary: Update a perspective
+      operationId: updatePerspective
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      - name: perspectiveId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Perspective'
+      responses:
+        '200':
+          description: The updated perspective.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Perspective'
+    delete:
+      tags:
+      - Perspectives
+      summary: Delete a perspective
+      operationId: deletePerspective
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      - name: perspectiveId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Perspective deleted.
+components:
+  schemas:
+    PerspectiveList:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+        views:
+          type: array
+          items:
+            $ref: '#/components/schemas/Perspective'
+    Perspective:
+      type: object
+      properties:
+        uuid:
+          type: string
+        name:
+          type: string
+        viewType:
+          type: string
+          enum:
+          - DEFAULT
+          - CUSTOMER
+          - SAMPLE
+        viewState:
+          type: string
+          enum:
+          - DRAFT
+          - COMPLETED
+        accountId:
+          type: string
+        folderId:
+          type: string
+        viewVersion:
+          type: string
+        viewTimeRange:
+          type: object
+          properties:
+            viewTimeRangeType:
+              type: string
+              enum:
+              - LAST_7
+              - LAST_30_DAYS
+              - LAST_MONTH
+              - CURRENT_MONTH
+              - CUSTOM
+            startTime:
+              type: integer
+              format: int64
+            endTime:
+              type: integer
+              format: int64
+        dataSources:
+          type: array
+          items:
+            type: string
+            enum:
+            - CLUSTER
+            - AWS
+            - GCP
+            - AZURE
+            - COMMON
+            - CUSTOM
+            - BUSINESS_MAPPING
+            - LABEL
+            - LABEL_V2
+  parameters:
+    AccountIdentifier:
+      name: accountIdentifier
+      in: query
+      required: true
+      schema:
+        type: string
+      description: The Harness account identifier.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Harness Personal Access Token or Service Account API key.

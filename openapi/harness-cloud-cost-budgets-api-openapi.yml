@@ -1,0 +1,198 @@
+openapi: 3.0.3
+info:
+  title: Harness Cloud Cost Management Anomalies Budgets API
+  description: The Harness Cloud Cost Management (CCM) API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection, and AI-driven recommendations across AWS, Azure, GCP, and Kubernetes environments. CCM enables FinOps practices by exposing granular cost details across namespaces, nodes, pods, accounts, and services.
+  version: '1.0'
+  contact:
+    name: Harness Support
+    url: https://developer.harness.io/docs/cloud-cost-management
+    email: support@harness.io
+  license:
+    name: Harness Terms of Service
+    url: https://harness.io/legal/terms
+servers:
+- url: https://app.harness.io
+  description: Harness production endpoint
+security:
+- ApiKeyAuth: []
+tags:
+- name: Budgets
+  description: Define and monitor cloud spending budgets with alerts.
+paths:
+  /ccm/api/budgets:
+    get:
+      tags:
+      - Budgets
+      summary: List budgets
+      description: Returns the budgets configured in the account.
+      operationId: listBudgets
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      responses:
+        '200':
+          description: A list of budgets.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Budget'
+    post:
+      tags:
+      - Budgets
+      summary: Create a budget
+      operationId: createBudget
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Budget'
+      responses:
+        '200':
+          description: The created budget.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Budget'
+  /ccm/api/budgets/{budgetId}:
+    get:
+      tags:
+      - Budgets
+      summary: Get a budget
+      operationId: getBudget
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      - name: budgetId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A single budget.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Budget'
+    put:
+      tags:
+      - Budgets
+      summary: Update a budget
+      operationId: updateBudget
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      - name: budgetId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Budget'
+      responses:
+        '200':
+          description: The updated budget.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Budget'
+    delete:
+      tags:
+      - Budgets
+      summary: Delete a budget
+      operationId: deleteBudget
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      - name: budgetId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Budget deleted.
+components:
+  schemas:
+    Budget:
+      type: object
+      properties:
+        uuid:
+          type: string
+        name:
+          type: string
+        accountId:
+          type: string
+        type:
+          type: string
+          enum:
+          - SPECIFIED_AMOUNT
+          - PREVIOUS_MONTH_SPEND
+          - PREVIOUS_PERIOD_SPEND
+        budgetAmount:
+          type: number
+          format: double
+        actualCost:
+          type: number
+          format: double
+        forecastCost:
+          type: number
+          format: double
+        period:
+          type: string
+          enum:
+          - DAILY
+          - WEEKLY
+          - MONTHLY
+          - QUARTERLY
+          - YEARLY
+        growthRate:
+          type: number
+          format: double
+        alertThresholds:
+          type: array
+          items:
+            type: object
+            properties:
+              percentage:
+                type: number
+              basedOn:
+                type: string
+                enum:
+                - ACTUAL_COST
+                - FORECASTED_COST
+              emailAddresses:
+                type: array
+                items:
+                  type: string
+        scope:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+              - PERSPECTIVE
+              - APPLICATION
+            entityIds:
+              type: array
+              items:
+                type: string
+  parameters:
+    AccountIdentifier:
+      name: accountIdentifier
+      in: query
+      required: true
+      schema:
+        type: string
+      description: The Harness account identifier.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Harness Personal Access Token or Service Account API key.

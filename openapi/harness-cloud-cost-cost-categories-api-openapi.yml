@@ -1,0 +1,104 @@
+openapi: 3.0.3
+info:
+  title: Harness Cloud Cost Management Anomalies Cost Categories API
+  description: The Harness Cloud Cost Management (CCM) API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection, and AI-driven recommendations across AWS, Azure, GCP, and Kubernetes environments. CCM enables FinOps practices by exposing granular cost details across namespaces, nodes, pods, accounts, and services.
+  version: '1.0'
+  contact:
+    name: Harness Support
+    url: https://developer.harness.io/docs/cloud-cost-management
+    email: support@harness.io
+  license:
+    name: Harness Terms of Service
+    url: https://harness.io/legal/terms
+servers:
+- url: https://app.harness.io
+  description: Harness production endpoint
+security:
+- ApiKeyAuth: []
+tags:
+- name: Cost Categories
+  description: Allocate and chargeback cloud costs by business units.
+paths:
+  /ccm/api/business-mapping:
+    get:
+      tags:
+      - Cost Categories
+      summary: List cost categories
+      description: Returns cost categories (business mappings) used for chargeback and showback.
+      operationId: listCostCategories
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      responses:
+        '200':
+          description: A list of cost categories.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CostCategory'
+    post:
+      tags:
+      - Cost Categories
+      summary: Create a cost category
+      operationId: createCostCategory
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CostCategory'
+      responses:
+        '200':
+          description: The created cost category.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostCategory'
+components:
+  schemas:
+    CostCategory:
+      type: object
+      properties:
+        uuid:
+          type: string
+        name:
+          type: string
+        accountId:
+          type: string
+        costTargets:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              rules:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+        sharedCosts:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        unallocatedCost:
+          type: object
+          additionalProperties: true
+  parameters:
+    AccountIdentifier:
+      name: accountIdentifier
+      in: query
+      required: true
+      schema:
+        type: string
+      description: The Harness account identifier.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Harness Personal Access Token or Service Account API key.

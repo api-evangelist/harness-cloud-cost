@@ -1,0 +1,77 @@
+openapi: 3.0.3
+info:
+  title: Harness Cloud Cost Management Anomalies Connectors API
+  description: The Harness Cloud Cost Management (CCM) API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection, and AI-driven recommendations across AWS, Azure, GCP, and Kubernetes environments. CCM enables FinOps practices by exposing granular cost details across namespaces, nodes, pods, accounts, and services.
+  version: '1.0'
+  contact:
+    name: Harness Support
+    url: https://developer.harness.io/docs/cloud-cost-management
+    email: support@harness.io
+  license:
+    name: Harness Terms of Service
+    url: https://harness.io/legal/terms
+servers:
+- url: https://app.harness.io
+  description: Harness production endpoint
+security:
+- ApiKeyAuth: []
+tags:
+- name: Connectors
+  description: Manage cloud provider and Kubernetes connectors for cost ingestion.
+paths:
+  /ng/api/connectors:
+    get:
+      tags:
+      - Connectors
+      summary: List connectors
+      description: Returns the connectors (cloud accounts and Kubernetes clusters) used for cost ingestion.
+      operationId: listConnectors
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      - name: type
+        in: query
+        schema:
+          type: string
+          example: CEAws
+      responses:
+        '200':
+          description: A list of connectors.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Connector'
+components:
+  schemas:
+    Connector:
+      type: object
+      properties:
+        identifier:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - CEAws
+          - CEAzure
+          - CEGcp
+          - CEK8sCluster
+        spec:
+          type: object
+          additionalProperties: true
+  parameters:
+    AccountIdentifier:
+      name: accountIdentifier
+      in: query
+      required: true
+      schema:
+        type: string
+      description: The Harness account identifier.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Harness Personal Access Token or Service Account API key.

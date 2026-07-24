@@ -1,0 +1,103 @@
+openapi: 3.0.3
+info:
+  title: Harness Cloud Cost Management Anomalies Recommendations API
+  description: The Harness Cloud Cost Management (CCM) API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection, and AI-driven recommendations across AWS, Azure, GCP, and Kubernetes environments. CCM enables FinOps practices by exposing granular cost details across namespaces, nodes, pods, accounts, and services.
+  version: '1.0'
+  contact:
+    name: Harness Support
+    url: https://developer.harness.io/docs/cloud-cost-management
+    email: support@harness.io
+  license:
+    name: Harness Terms of Service
+    url: https://harness.io/legal/terms
+servers:
+- url: https://app.harness.io
+  description: Harness production endpoint
+security:
+- ApiKeyAuth: []
+tags:
+- name: Recommendations
+  description: AI-driven recommendations for cloud cost optimization.
+paths:
+  /ccm/api/recommendation/overview/list:
+    get:
+      tags:
+      - Recommendations
+      summary: List cost recommendations
+      description: Returns CCM recommendations for cost savings.
+      operationId: listRecommendations
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      responses:
+        '200':
+          description: A list of recommendations.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Recommendation'
+  /ccm/api/recommendation/{recommendationId}:
+    get:
+      tags:
+      - Recommendations
+      summary: Get a recommendation
+      operationId: getRecommendation
+      parameters:
+      - $ref: '#/components/parameters/AccountIdentifier'
+      - name: recommendationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Recommendation detail.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recommendation'
+components:
+  schemas:
+    Recommendation:
+      type: object
+      properties:
+        id:
+          type: string
+        clusterName:
+          type: string
+        namespace:
+          type: string
+        resourceName:
+          type: string
+        resourceType:
+          type: string
+          enum:
+          - WORKLOAD
+          - NODE_POOL
+          - ECS_SERVICE
+          - EC2_INSTANCE
+          - GOVERNANCE
+        monthlyCost:
+          type: number
+          format: double
+        monthlySaving:
+          type: number
+          format: double
+        recommendationDetails:
+          type: object
+          additionalProperties: true
+  parameters:
+    AccountIdentifier:
+      name: accountIdentifier
+      in: query
+      required: true
+      schema:
+        type: string
+      description: The Harness account identifier.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Harness Personal Access Token or Service Account API key.
