@@ -6,7 +6,20 @@ description: >-
   ingests cost data from AWS, Azure, GCP, and Kubernetes clusters and exposes a REST API on the Harness platform for
   FinOps automation.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/harness-cloud-cost.png
 tags:
   - Anomaly Detection
   - Budgets
@@ -19,30 +32,120 @@ created: '2026-03-27'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: harness-cloud-cost:harness-cloud-cost
-    name: Harness Cloud Cost Management API
-    description: >-
-      The Harness CCM API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection,
-      AI-driven recommendations, cost categories (chargeback / showback), and cloud connector configuration across AWS,
-      Azure, GCP, and Kubernetes.
-    humanURL: https://www.harness.io/products/cloud-cost
-    baseURL: https://app.harness.io
-    tags:
-      - Cloud Cost Management
-      - FinOps
-    properties:
-      - type: Documentation
-        url: https://developer.harness.io/docs/cloud-cost-management
-      - type: GettingStarted
-        url: https://developer.harness.io/docs/cloud-cost-management/get-started/overview
-      - type: APIReference
-        url: https://apidocs.harness.io/
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/openapi/harness-cloud-cost-openapi.yml
-      - type: Rules
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/rules/harness-cloud-cost-rules.yml
+- aid: harness-cloud-cost:harness-cloud-cost-anomalies-api
+  name: Harness Cloud Cost Management Anomalies API
+  description: Detect and review unusual cost patterns and anomalies.
+  humanURL: https://www.harness.io/products/cloud-cost
+  baseURL: https://app.harness.io
+  tags:
+  - Anomalies
+  properties:
+  - type: OpenAPI
+    url: openapi/harness-cloud-cost-anomalies-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harness.io/docs/cloud-cost-management
+  - type: GettingStarted
+    url: https://developer.harness.io/docs/cloud-cost-management/get-started/overview
+  - type: APIReference
+    url: https://apidocs.harness.io/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/rules/harness-cloud-cost-rules.yml
+- aid: harness-cloud-cost:harness-cloud-cost-budgets-api
+  name: Harness Cloud Cost Management Budgets API
+  description: Define and monitor cloud spending budgets with alerts.
+  humanURL: https://www.harness.io/products/cloud-cost
+  baseURL: https://app.harness.io
+  tags:
+  - Budgets
+  properties:
+  - type: OpenAPI
+    url: openapi/harness-cloud-cost-budgets-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harness.io/docs/cloud-cost-management
+  - type: GettingStarted
+    url: https://developer.harness.io/docs/cloud-cost-management/get-started/overview
+  - type: APIReference
+    url: https://apidocs.harness.io/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/rules/harness-cloud-cost-rules.yml
+- aid: harness-cloud-cost:harness-cloud-cost-connectors-api
+  name: Harness Cloud Cost Management Connectors API
+  description: Manage cloud provider and Kubernetes connectors for cost ingestion.
+  humanURL: https://www.harness.io/products/cloud-cost
+  baseURL: https://app.harness.io
+  tags:
+  - Connectors
+  properties:
+  - type: OpenAPI
+    url: openapi/harness-cloud-cost-connectors-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harness.io/docs/cloud-cost-management
+  - type: GettingStarted
+    url: https://developer.harness.io/docs/cloud-cost-management/get-started/overview
+  - type: APIReference
+    url: https://apidocs.harness.io/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/rules/harness-cloud-cost-rules.yml
+- aid: harness-cloud-cost:harness-cloud-cost-cost-categories-api
+  name: Harness Cloud Cost Management Cost Categories API
+  description: Allocate and chargeback cloud costs by business units.
+  humanURL: https://www.harness.io/products/cloud-cost
+  baseURL: https://app.harness.io
+  tags:
+  - Cost Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/harness-cloud-cost-cost-categories-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harness.io/docs/cloud-cost-management
+  - type: GettingStarted
+    url: https://developer.harness.io/docs/cloud-cost-management/get-started/overview
+  - type: APIReference
+    url: https://apidocs.harness.io/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/rules/harness-cloud-cost-rules.yml
+- aid: harness-cloud-cost:harness-cloud-cost-perspectives-api
+  name: Harness Cloud Cost Management Perspectives API
+  description: Group and analyze cloud cost data through customizable views.
+  humanURL: https://www.harness.io/products/cloud-cost
+  baseURL: https://app.harness.io
+  tags:
+  - Perspectives
+  properties:
+  - type: OpenAPI
+    url: openapi/harness-cloud-cost-perspectives-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harness.io/docs/cloud-cost-management
+  - type: GettingStarted
+    url: https://developer.harness.io/docs/cloud-cost-management/get-started/overview
+  - type: APIReference
+    url: https://apidocs.harness.io/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/rules/harness-cloud-cost-rules.yml
+- aid: harness-cloud-cost:harness-cloud-cost-recommendations-api
+  name: Harness Cloud Cost Management Recommendations API
+  description: AI-driven recommendations for cloud cost optimization.
+  humanURL: https://www.harness.io/products/cloud-cost
+  baseURL: https://app.harness.io
+  tags:
+  - Recommendations
+  properties:
+  - type: OpenAPI
+    url: openapi/harness-cloud-cost-recommendations-api-openapi.yml
+  - type: Documentation
+    url: https://developer.harness.io/docs/cloud-cost-management
+  - type: GettingStarted
+    url: https://developer.harness.io/docs/cloud-cost-management/get-started/overview
+  - type: APIReference
+    url: https://apidocs.harness.io/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/rules/harness-cloud-cost-rules.yml
 common:
   - type: AgenticAccess
     url: agentic-access/harness-cloud-cost-agentic-access.yml
