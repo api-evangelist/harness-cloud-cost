@@ -1,0 +1,24 @@
+{
+  "provider": "harness-cloud-cost",
+  "sources": [
+    "harness-cloud-cost-anomalies-api-openapi.yml",
+    "harness-cloud-cost-budgets-api-openapi.yml",
+    "harness-cloud-cost-connectors-api-openapi.yml",
+    "harness-cloud-cost-cost-categories-api-openapi.yml",
+    "harness-cloud-cost-perspectives-api-openapi.yml",
+    "harness-cloud-cost-recommendations-api-openapi.yml"
+  ],
+  "outputs": [
+    "harness-cloud-cost-anomalies-api-openapi.yml",
+    "harness-cloud-cost-budgets-api-openapi.yml",
+    "harness-cloud-cost-connectors-api-openapi.yml",
+    "harness-cloud-cost-cost-categories-api-openapi.yml",
+    "harness-cloud-cost-perspectives-api-openapi.yml",
+    "harness-cloud-cost-recommendations-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
