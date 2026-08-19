@@ -1,0 +1,255 @@
+{
+  "item": [
+    {
+      "id": "655d8056-df7a-4af7-9531-31067c597c15",
+      "name": "Cost Categories",
+      "description": {
+        "content": "Allocate and chargeback cloud costs by business units.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0fd735dd-bc8f-4cfd-a167-baedf583c3b8",
+          "name": "List cost categories",
+          "request": {
+            "name": "List cost categories",
+            "description": {
+              "content": "Returns cost categories (business mappings) used for chargeback and showback.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "business-mapping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "34f4ad35-53bc-473d-a5e4-74fc002283af",
+              "name": "A list of cost categories.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "business-mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"uuid\": \"string\",\n    \"name\": \"string\",\n    \"accountId\": \"string\",\n    \"costTargets\": [\n      {\n        \"name\": \"string\",\n        \"rules\": [\n          {\n            \"key_0\": true,\n            \"key_1\": true\n          },\n          {\n            \"key_0\": 2402,\n            \"key_1\": false,\n            \"key_2\": false,\n            \"key_3\": 4851\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"rules\": [\n          {\n            \"key_0\": 5923\n          },\n          {\n            \"key_0\": 4503\n          }\n        ]\n      }\n    ],\n    \"sharedCosts\": [\n      {\n        \"key_0\": 4272\n      },\n      {\n        \"key_0\": false,\n        \"key_1\": 4182.541763760402,\n        \"key_2\": 9403.047687728298\n      }\n    ],\n    \"unallocatedCost\": {\n      \"key_0\": 1028.0199049304329,\n      \"key_1\": 2179.5251069670353\n    }\n  },\n  {\n    \"uuid\": \"string\",\n    \"name\": \"string\",\n    \"accountId\": \"string\",\n    \"costTargets\": [\n      {\n        \"name\": \"string\",\n        \"rules\": [\n          {\n            \"key_0\": false\n          },\n          {\n            \"key_0\": true,\n            \"key_1\": 1233.7298990345002\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"rules\": [\n          {\n            \"key_0\": 7351,\n            \"key_1\": false,\n            \"key_2\": false,\n            \"key_3\": 6507\n          },\n          {\n            \"key_0\": \"string\",\n            \"key_1\": 1630.2758665938077,\n            \"key_2\": 4191.16048819997,\n            \"key_3\": 1898,\n            \"key_4\": 6555\n          }\n        ]\n      }\n    ],\n    \"sharedCosts\": [\n      {\n        \"key_0\": true,\n        \"key_1\": 4643\n      },\n      {\n        \"key_0\": \"string\",\n        \"key_1\": 8921.10587599682\n      }\n    ],\n    \"unallocatedCost\": {\n      \"key_0\": false,\n      \"key_1\": \"string\",\n      \"key_2\": 3952\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7859339-cd63-4c23-af90-c482bd65bfd5",
+          "name": "Create a cost category",
+          "request": {
+            "name": "Create a cost category",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "business-mapping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"costTargets\": [\n    {\n      \"name\": \"<string>\",\n      \"rules\": [\n        {\n          \"key_0\": 5675.24221892801\n        },\n        {\n          \"key_0\": 3550.1502417754236,\n          \"key_1\": false\n        }\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"rules\": [\n        {\n          \"key_0\": true,\n          \"key_1\": \"string\"\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": 3087,\n          \"key_2\": false,\n          \"key_3\": 4818.104484886484\n        }\n      ]\n    }\n  ],\n  \"sharedCosts\": [\n    {\n      \"key_0\": 1465.080053140544,\n      \"key_1\": \"string\",\n      \"key_2\": 7250,\n      \"key_3\": 8031.570583255851\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 2475.1253278262975\n    }\n  ],\n  \"unallocatedCost\": {\n    \"key_0\": 3580,\n    \"key_1\": 3971.909594083244\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "66bf0db2-b238-4e30-9c09-de5b2dba7e13",
+              "name": "The created cost category.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "business-mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"costTargets\": [\n    {\n      \"name\": \"<string>\",\n      \"rules\": [\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": false,\n          \"key_2\": 8737.086387135552\n        }\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"rules\": [\n        {\n          \"key_0\": \"string\",\n          \"key_1\": 3800.083604979747\n        },\n        {\n          \"key_0\": 9663.538148568678,\n          \"key_1\": true\n        }\n      ]\n    }\n  ],\n  \"sharedCosts\": [\n    {\n      \"key_0\": false\n    },\n    {\n      \"key_0\": 3877.1607432266264\n    }\n  ],\n  \"unallocatedCost\": {\n    \"key_0\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"costTargets\": [\n    {\n      \"name\": \"<string>\",\n      \"rules\": [\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": false,\n          \"key_2\": 8737.086387135552\n        }\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"rules\": [\n        {\n          \"key_0\": \"string\",\n          \"key_1\": 3800.083604979747\n        },\n        {\n          \"key_0\": 9663.538148568678,\n          \"key_1\": true\n        }\n      ]\n    }\n  ],\n  \"sharedCosts\": [\n    {\n      \"key_0\": false\n    },\n    {\n      \"key_0\": 3877.1607432266264\n    }\n  ],\n  \"unallocatedCost\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.harness.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ea510ed7-05ea-467b-a583-b86db2c22dcb",
+    "name": "Harness Cloud Cost Management Anomalies Cost Categories API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Harness Cloud Cost Management (CCM) API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection, and AI-driven recommendations across AWS, Azure, GCP, and Kubernetes environments. CCM enables FinOps practices by exposing granular cost details across namespaces, nodes, pods, accounts, and services.\n\nContact Support:\n Name: Harness Support\n Email: support@harness.io",
+      "type": "text/plain"
+    }
+  }
+}

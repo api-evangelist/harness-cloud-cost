@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harness Cloud Cost Management Anomalies Recommendations API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Recommendations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List cost recommendations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.harness.io/ccm/api/recommendation/overview/list",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              }
+            ]
+          },
+          "docs": "Returns CCM recommendations for cost savings."
+        },
+        {
+          "info": {
+            "name": "Get a recommendation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.harness.io/ccm/api/recommendation/:recommendationId",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              },
+              {
+                "name": "recommendationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a recommendation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

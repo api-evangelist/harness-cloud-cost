@@ -1,0 +1,593 @@
+{
+  "item": [
+    {
+      "id": "f0323bca-f00b-4023-99fb-283dc7756e2c",
+      "name": "Budgets",
+      "description": {
+        "content": "Define and monitor cloud spending budgets with alerts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c573dd88-df98-475d-9999-3bda1f76006b",
+          "name": "List budgets",
+          "request": {
+            "name": "List budgets",
+            "description": {
+              "content": "Returns the budgets configured in the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "budgets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5584bf82-e2e8-4580-bb6f-1f7dfa6832a6",
+              "name": "A list of budgets.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "budgets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"uuid\": \"string\",\n    \"name\": \"string\",\n    \"accountId\": \"string\",\n    \"type\": \"PREVIOUS_MONTH_SPEND\",\n    \"budgetAmount\": 1133.7902436039349,\n    \"actualCost\": 8547.36946754225,\n    \"forecastCost\": 3022.7405845313506,\n    \"period\": \"QUARTERLY\",\n    \"growthRate\": 6245.366579916771,\n    \"alertThresholds\": [\n      {\n        \"percentage\": 6985.727809619171,\n        \"basedOn\": \"ACTUAL_COST\",\n        \"emailAddresses\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"percentage\": 475.23067542393994,\n        \"basedOn\": \"ACTUAL_COST\",\n        \"emailAddresses\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"scope\": {\n      \"type\": \"PERSPECTIVE\",\n      \"entityIds\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  },\n  {\n    \"uuid\": \"string\",\n    \"name\": \"string\",\n    \"accountId\": \"string\",\n    \"type\": \"SPECIFIED_AMOUNT\",\n    \"budgetAmount\": 4229.387560572216,\n    \"actualCost\": 7345.367409080322,\n    \"forecastCost\": 9359.637671965062,\n    \"period\": \"DAILY\",\n    \"growthRate\": 7199.201577416537,\n    \"alertThresholds\": [\n      {\n        \"percentage\": 688.0312216069029,\n        \"basedOn\": \"FORECASTED_COST\",\n        \"emailAddresses\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"percentage\": 4125.774429506437,\n        \"basedOn\": \"ACTUAL_COST\",\n        \"emailAddresses\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"scope\": {\n      \"type\": \"PERSPECTIVE\",\n      \"entityIds\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f497dec7-044f-4a3c-b8db-d211084a2547",
+          "name": "Create a budget",
+          "request": {
+            "name": "Create a budget",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "budgets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"budgetAmount\": \"<double>\",\n  \"actualCost\": \"<double>\",\n  \"forecastCost\": \"<double>\",\n  \"period\": \"<string>\",\n  \"growthRate\": \"<double>\",\n  \"alertThresholds\": [\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"scope\": {\n    \"type\": \"<string>\",\n    \"entityIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9e67ed74-ca99-4796-91db-ccbad22d66fb",
+              "name": "The created budget.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "budgets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"budgetAmount\": \"<double>\",\n  \"actualCost\": \"<double>\",\n  \"forecastCost\": \"<double>\",\n  \"period\": \"<string>\",\n  \"growthRate\": \"<double>\",\n  \"alertThresholds\": [\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"scope\": {\n    \"type\": \"<string>\",\n    \"entityIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"budgetAmount\": \"<double>\",\n  \"actualCost\": \"<double>\",\n  \"forecastCost\": \"<double>\",\n  \"period\": \"<string>\",\n  \"growthRate\": \"<double>\",\n  \"alertThresholds\": [\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"scope\": {\n    \"type\": \"<string>\",\n    \"entityIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1ed12ee-a807-4609-8251-d786f082f44b",
+          "name": "Get a budget",
+          "request": {
+            "name": "Get a budget",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "budgets",
+                ":budgetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "budgetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c38841b6-f130-4f33-8a5c-74606581b5b3",
+              "name": "A single budget.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "budgets",
+                    ":budgetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "budgetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"budgetAmount\": \"<double>\",\n  \"actualCost\": \"<double>\",\n  \"forecastCost\": \"<double>\",\n  \"period\": \"<string>\",\n  \"growthRate\": \"<double>\",\n  \"alertThresholds\": [\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"scope\": {\n    \"type\": \"<string>\",\n    \"entityIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea6e6a63-9936-4d57-8541-1c60f793e352",
+          "name": "Update a budget",
+          "request": {
+            "name": "Update a budget",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "budgets",
+                ":budgetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "budgetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"budgetAmount\": \"<double>\",\n  \"actualCost\": \"<double>\",\n  \"forecastCost\": \"<double>\",\n  \"period\": \"<string>\",\n  \"growthRate\": \"<double>\",\n  \"alertThresholds\": [\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"scope\": {\n    \"type\": \"<string>\",\n    \"entityIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3e6af9f6-81c1-4081-a08d-1d7a85b1a081",
+              "name": "The updated budget.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "budgets",
+                    ":budgetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "budgetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"budgetAmount\": \"<double>\",\n  \"actualCost\": \"<double>\",\n  \"forecastCost\": \"<double>\",\n  \"period\": \"<string>\",\n  \"growthRate\": \"<double>\",\n  \"alertThresholds\": [\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"scope\": {\n    \"type\": \"<string>\",\n    \"entityIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"budgetAmount\": \"<double>\",\n  \"actualCost\": \"<double>\",\n  \"forecastCost\": \"<double>\",\n  \"period\": \"<string>\",\n  \"growthRate\": \"<double>\",\n  \"alertThresholds\": [\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"percentage\": \"<number>\",\n      \"basedOn\": \"<string>\",\n      \"emailAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"scope\": {\n    \"type\": \"<string>\",\n    \"entityIds\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9c69f7f-cf01-4077-9ddb-b53ebef379d7",
+          "name": "Delete a budget",
+          "request": {
+            "name": "Delete a budget",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "budgets",
+                ":budgetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "budgetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4765759-89f6-4eba-8795-fe108f572bbc",
+              "name": "Budget deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "budgets",
+                    ":budgetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "budgetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.harness.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "23393b34-d3fe-44c6-91a4-d58f16005cd8",
+    "name": "Harness Cloud Cost Management Anomalies Budgets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Harness Cloud Cost Management (CCM) API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection, and AI-driven recommendations across AWS, Azure, GCP, and Kubernetes environments. CCM enables FinOps practices by exposing granular cost details across namespaces, nodes, pods, accounts, and services.\n\nContact Support:\n Name: Harness Support\n Email: support@harness.io",
+      "type": "text/plain"
+    }
+  }
+}

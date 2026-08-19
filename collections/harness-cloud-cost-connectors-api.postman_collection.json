@@ -1,0 +1,152 @@
+{
+  "item": [
+    {
+      "id": "0ec51b4a-6853-4bc1-b1df-0192254f16af",
+      "name": "Connectors",
+      "description": {
+        "content": "Manage cloud provider and Kubernetes connectors for cost ingestion.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9ce32f4f-159c-48df-852c-09f484d25abf",
+          "name": "List connectors",
+          "request": {
+            "name": "List connectors",
+            "description": {
+              "content": "Returns the connectors (cloud accounts and Kubernetes clusters) used for cost ingestion.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ng",
+                "api",
+                "connectors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ef1fc40-eda9-4295-b752-1f5c6c0b43e6",
+              "name": "A list of connectors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ng",
+                    "api",
+                    "connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "CEAws"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"CEK8sCluster\",\n    \"spec\": {\n      \"key_0\": 354.77036633254966,\n      \"key_1\": \"string\"\n    }\n  },\n  {\n    \"identifier\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"CEK8sCluster\",\n    \"spec\": {\n      \"key_0\": \"string\",\n      \"key_1\": true,\n      \"key_2\": true,\n      \"key_3\": true\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.harness.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "718b5817-e748-4dbf-a892-f965ced902b4",
+    "name": "Harness Cloud Cost Management Anomalies Connectors API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Harness Cloud Cost Management (CCM) API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection, and AI-driven recommendations across AWS, Azure, GCP, and Kubernetes environments. CCM enables FinOps practices by exposing granular cost details across namespaces, nodes, pods, accounts, and services.\n\nContact Support:\n Name: Harness Support\n Email: support@harness.io",
+      "type": "text/plain"
+    }
+  }
+}

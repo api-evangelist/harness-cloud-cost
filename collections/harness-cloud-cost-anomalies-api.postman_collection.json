@@ -1,0 +1,252 @@
+{
+  "item": [
+    {
+      "id": "64f92ae5-b3e8-4c14-9964-7a0c8df8d3f9",
+      "name": "Anomalies",
+      "description": {
+        "content": "Detect and review unusual cost patterns and anomalies.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6c6d789f-ae59-478f-93a5-c988a18cc77d",
+          "name": "List anomalies",
+          "request": {
+            "name": "List anomalies",
+            "description": {
+              "content": "Returns the cost anomalies detected in the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "anomaly"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7319c5e2-be29-4187-8ce5-5c9c9eca623a",
+              "name": "A list of anomalies.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "anomaly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"accountId\": \"string\",\n    \"actualCost\": 1155.994931079457,\n    \"expectedCost\": 6664.458206864135,\n    \"anomalyScore\": 2863.4358493720156,\n    \"anomalyTime\": 7958,\n    \"cloudProvider\": \"AWS\",\n    \"resourceName\": \"string\",\n    \"resourceInfo\": \"string\",\n    \"userFeedback\": \"NOT_RESPONDED\"\n  },\n  {\n    \"id\": \"string\",\n    \"accountId\": \"string\",\n    \"actualCost\": 2694.756318656515,\n    \"expectedCost\": 5419.737837294315,\n    \"anomalyScore\": 144.18053949099897,\n    \"anomalyTime\": 3034,\n    \"cloudProvider\": \"AZURE\",\n    \"resourceName\": \"string\",\n    \"resourceInfo\": \"string\",\n    \"userFeedback\": \"TRUE_ANOMALY\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f0c1262-d529-4cb6-8910-b1c17cce0a23",
+          "name": "Get an anomaly",
+          "request": {
+            "name": "Get an anomaly",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "anomaly",
+                ":anomalyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "anomalyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "451bd806-a0f2-4fc6-8f6c-ea290eb0a3de",
+              "name": "A single anomaly.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "anomaly",
+                    ":anomalyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "anomalyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"accountId\": \"string\",\n  \"actualCost\": 2001.6072896283076,\n  \"expectedCost\": 9363.220861390228,\n  \"anomalyScore\": 7812.080104706204,\n  \"anomalyTime\": 2730,\n  \"cloudProvider\": \"AZURE\",\n  \"resourceName\": \"string\",\n  \"resourceInfo\": \"string\",\n  \"userFeedback\": \"TRUE_ANOMALY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.harness.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bf162055-01f5-4a3c-8e3b-df8acbc0b53a",
+    "name": "Harness Cloud Cost Management Anomalies API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Harness Cloud Cost Management (CCM) API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection, and AI-driven recommendations across AWS, Azure, GCP, and Kubernetes environments. CCM enables FinOps practices by exposing granular cost details across namespaces, nodes, pods, accounts, and services.\n\nContact Support:\n Name: Harness Support\n Email: support@harness.io",
+      "type": "text/plain"
+    }
+  }
+}

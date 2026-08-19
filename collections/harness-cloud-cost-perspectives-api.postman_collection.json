@@ -1,0 +1,596 @@
+{
+  "item": [
+    {
+      "id": "90c8e986-c741-442b-a1c1-681096c99628",
+      "name": "Perspectives",
+      "description": {
+        "content": "Group and analyze cloud cost data through customizable views.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "26fdd17b-3ca7-472a-93c2-76f9a6e09918",
+          "name": "List perspectives",
+          "request": {
+            "name": "List perspectives",
+            "description": {
+              "content": "Returns a list of cost perspectives configured in the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "perspective"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc069f9f-3d49-4814-befb-6bb863d9a8de",
+              "name": "A paged list of perspectives.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "perspective"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalCount\": 6802,\n  \"views\": [\n    {\n      \"uuid\": \"string\",\n      \"name\": \"string\",\n      \"viewType\": \"DEFAULT\",\n      \"viewState\": \"DRAFT\",\n      \"accountId\": \"string\",\n      \"folderId\": \"string\",\n      \"viewVersion\": \"string\",\n      \"viewTimeRange\": {\n        \"viewTimeRangeType\": \"LAST_7\",\n        \"startTime\": 1092,\n        \"endTime\": 7949\n      },\n      \"dataSources\": [\n        \"COMMON\",\n        \"AWS\"\n      ]\n    },\n    {\n      \"uuid\": \"string\",\n      \"name\": \"string\",\n      \"viewType\": \"DEFAULT\",\n      \"viewState\": \"COMPLETED\",\n      \"accountId\": \"string\",\n      \"folderId\": \"string\",\n      \"viewVersion\": \"string\",\n      \"viewTimeRange\": {\n        \"viewTimeRangeType\": \"LAST_30_DAYS\",\n        \"startTime\": 3626,\n        \"endTime\": 8242\n      },\n      \"dataSources\": [\n        \"GCP\",\n        \"AWS\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ffc0860-a90a-4851-8429-49a0f2ba5025",
+          "name": "Create a perspective",
+          "request": {
+            "name": "Create a perspective",
+            "description": {
+              "content": "Creates a new cost perspective.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "perspective"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"viewType\": \"<string>\",\n  \"viewState\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"folderId\": \"<string>\",\n  \"viewVersion\": \"<string>\",\n  \"viewTimeRange\": {\n    \"viewTimeRangeType\": \"<string>\",\n    \"startTime\": \"<long>\",\n    \"endTime\": \"<long>\"\n  },\n  \"dataSources\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f72757f7-9893-4d8d-97ca-5938537631e3",
+              "name": "The created perspective.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "perspective"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"viewType\": \"<string>\",\n  \"viewState\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"folderId\": \"<string>\",\n  \"viewVersion\": \"<string>\",\n  \"viewTimeRange\": {\n    \"viewTimeRangeType\": \"<string>\",\n    \"startTime\": \"<long>\",\n    \"endTime\": \"<long>\"\n  },\n  \"dataSources\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"viewType\": \"<string>\",\n  \"viewState\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"folderId\": \"<string>\",\n  \"viewVersion\": \"<string>\",\n  \"viewTimeRange\": {\n    \"viewTimeRangeType\": \"<string>\",\n    \"startTime\": \"<long>\",\n    \"endTime\": \"<long>\"\n  },\n  \"dataSources\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3dd5ca5-8bd8-4611-a1fb-028716c463bf",
+          "name": "Get a perspective",
+          "request": {
+            "name": "Get a perspective",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "perspective",
+                ":perspectiveId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "perspectiveId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20372757-510e-4ad4-8b98-a344beb52d9c",
+              "name": "A single perspective.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "perspective",
+                    ":perspectiveId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "perspectiveId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"viewType\": \"<string>\",\n  \"viewState\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"folderId\": \"<string>\",\n  \"viewVersion\": \"<string>\",\n  \"viewTimeRange\": {\n    \"viewTimeRangeType\": \"<string>\",\n    \"startTime\": \"<long>\",\n    \"endTime\": \"<long>\"\n  },\n  \"dataSources\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed51e5a5-6fac-4fec-b145-234838259fb7",
+          "name": "Update a perspective",
+          "request": {
+            "name": "Update a perspective",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "perspective",
+                ":perspectiveId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "perspectiveId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"viewType\": \"<string>\",\n  \"viewState\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"folderId\": \"<string>\",\n  \"viewVersion\": \"<string>\",\n  \"viewTimeRange\": {\n    \"viewTimeRangeType\": \"<string>\",\n    \"startTime\": \"<long>\",\n    \"endTime\": \"<long>\"\n  },\n  \"dataSources\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b7d0917c-e18c-439b-8802-6f3dd3f6c8fd",
+              "name": "The updated perspective.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "perspective",
+                    ":perspectiveId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "perspectiveId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"viewType\": \"<string>\",\n  \"viewState\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"folderId\": \"<string>\",\n  \"viewVersion\": \"<string>\",\n  \"viewTimeRange\": {\n    \"viewTimeRangeType\": \"<string>\",\n    \"startTime\": \"<long>\",\n    \"endTime\": \"<long>\"\n  },\n  \"dataSources\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"<string>\",\n  \"viewType\": \"<string>\",\n  \"viewState\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"folderId\": \"<string>\",\n  \"viewVersion\": \"<string>\",\n  \"viewTimeRange\": {\n    \"viewTimeRangeType\": \"<string>\",\n    \"startTime\": \"<long>\",\n    \"endTime\": \"<long>\"\n  },\n  \"dataSources\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb8ccbcb-ff26-4659-83a1-3fd3b4fee6b7",
+          "name": "Delete a perspective",
+          "request": {
+            "name": "Delete a perspective",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "perspective",
+                ":perspectiveId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "perspectiveId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ddc84b36-1273-481e-9cfb-83a703098152",
+              "name": "Perspective deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "perspective",
+                    ":perspectiveId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "perspectiveId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.harness.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8cb34f41-be8a-424f-82d2-2010ca9f2f36",
+    "name": "Harness Cloud Cost Management Anomalies Perspectives API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Harness Cloud Cost Management (CCM) API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection, and AI-driven recommendations across AWS, Azure, GCP, and Kubernetes environments. CCM enables FinOps practices by exposing granular cost details across namespaces, nodes, pods, accounts, and services.\n\nContact Support:\n Name: Harness Support\n Email: support@harness.io",
+      "type": "text/plain"
+    }
+  }
+}

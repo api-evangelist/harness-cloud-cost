@@ -1,0 +1,256 @@
+{
+  "item": [
+    {
+      "id": "aba055d6-2404-4597-923b-48d0d80663a8",
+      "name": "Recommendations",
+      "description": {
+        "content": "AI-driven recommendations for cloud cost optimization.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8a1c0b19-e521-4c36-ad8f-a73cc3996fb3",
+          "name": "List cost recommendations",
+          "request": {
+            "name": "List cost recommendations",
+            "description": {
+              "content": "Returns CCM recommendations for cost savings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "recommendation",
+                "overview",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e46bed0-98ab-45c7-95f8-4f55df6672a5",
+              "name": "A list of recommendations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "recommendation",
+                    "overview",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"clusterName\": \"string\",\n    \"namespace\": \"string\",\n    \"resourceName\": \"string\",\n    \"resourceType\": \"NODE_POOL\",\n    \"monthlyCost\": 1737.7792815902503,\n    \"monthlySaving\": 6002.019811727158,\n    \"recommendationDetails\": {\n      \"key_0\": 8397,\n      \"key_1\": 3248,\n      \"key_2\": 3999.59303087149\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"clusterName\": \"string\",\n    \"namespace\": \"string\",\n    \"resourceName\": \"string\",\n    \"resourceType\": \"ECS_SERVICE\",\n    \"monthlyCost\": 5983.468103560658,\n    \"monthlySaving\": 9109.917932114315,\n    \"recommendationDetails\": {\n      \"key_0\": true,\n      \"key_1\": 8561,\n      \"key_2\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e30e3624-a8af-4773-bd7f-ef3e598c3619",
+          "name": "Get a recommendation",
+          "request": {
+            "name": "Get a recommendation",
+            "description": {},
+            "url": {
+              "path": [
+                "ccm",
+                "api",
+                "recommendation",
+                ":recommendationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The Harness account identifier."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recommendationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "477dd6a2-b529-4eb9-a52c-15faaf4cf811",
+              "name": "Recommendation detail.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ccm",
+                    "api",
+                    "recommendation",
+                    ":recommendationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recommendationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"clusterName\": \"string\",\n  \"namespace\": \"string\",\n  \"resourceName\": \"string\",\n  \"resourceType\": \"WORKLOAD\",\n  \"monthlyCost\": 1191.7403871793563,\n  \"monthlySaving\": 4136.004125355385,\n  \"recommendationDetails\": {\n    \"key_0\": 7812.617418423241,\n    \"key_1\": 9229.152996254192\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.harness.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0ba9d8a7-9ee2-4994-9356-221905e2f145",
+    "name": "Harness Cloud Cost Management Anomalies Recommendations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Harness Cloud Cost Management (CCM) API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection, and AI-driven recommendations across AWS, Azure, GCP, and Kubernetes environments. CCM enables FinOps practices by exposing granular cost details across namespaces, nodes, pods, accounts, and services.\n\nContact Support:\n Name: Harness Support\n Email: support@harness.io",
+      "type": "text/plain"
+    }
+  }
+}

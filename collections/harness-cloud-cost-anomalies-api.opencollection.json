@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harness Cloud Cost Management Anomalies API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Anomalies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List anomalies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.harness.io/ccm/api/anomaly",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              }
+            ]
+          },
+          "docs": "Returns the cost anomalies detected in the account."
+        },
+        {
+          "info": {
+            "name": "Get an anomaly",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.harness.io/ccm/api/anomaly/:anomalyId",
+            "params": [
+              {
+                "name": "accountIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The Harness account identifier."
+              },
+              {
+                "name": "anomalyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an anomaly"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
