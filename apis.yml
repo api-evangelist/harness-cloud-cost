@@ -6,6 +6,18 @@ description: >-
   ingests cost data from AWS, Azure, GCP, and Kubernetes clusters and exposes a REST API on the Harness platform for
   FinOps automation.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
