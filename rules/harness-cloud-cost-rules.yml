@@ -1,12 +1,12 @@
-aid: harness-cloud-cost:harness-cloud-cost
-name: Harness Cloud Cost Management Rules
+x-aid: harness-cloud-cost:harness-cloud-cost
+x-name: Harness Cloud Cost Management Rules
 description: >-
   A set of rules used to govern, audit, and analyze the Harness Cloud Cost
   Management API surface. These rules cover authentication, request shape,
   response handling, and FinOps-aligned operational guidance for using CCM
   endpoints (Perspectives, Budgets, Recommendations, Anomalies, Cost Categories,
   and Connectors).
-tags:
+x-tags:
   - Cloud Cost Management
   - FinOps
   - Governance

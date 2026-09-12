@@ -19,6 +19,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "harness-cloud-cost-anomalies-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "harness-cloud-cost-budgets-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "harness-cloud-cost-connectors-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "harness-cloud-cost-cost-categories-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "harness-cloud-cost-perspectives-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "harness-cloud-cost-recommendations-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
