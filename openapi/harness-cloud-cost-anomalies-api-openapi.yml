@@ -58,6 +58,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/Anomaly'
 components:
+  parameters:
+    AccountIdentifier:
+      name: accountIdentifier
+      in: query
+      required: true
+      schema:
+        type: string
+      description: The Harness account identifier.
   schemas:
     Anomaly:
       type: object
@@ -95,14 +103,6 @@ components:
           - TRUE_ANOMALY
           - FALSE_ANOMALY
           - NOT_RESPONDED
-  parameters:
-    AccountIdentifier:
-      name: accountIdentifier
-      in: query
-      required: true
-      schema:
-        type: string
-      description: The Harness account identifier.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

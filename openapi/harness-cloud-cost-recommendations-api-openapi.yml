@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Harness Cloud Cost Management Anomalies Recommendations API
+  title: Harness Cloud Cost Management Recommendations API
   description: The Harness Cloud Cost Management (CCM) API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection, and AI-driven recommendations across AWS, Azure, GCP, and Kubernetes environments. CCM enables FinOps practices by exposing granular cost details across namespaces, nodes, pods, accounts, and services.
   version: '1.0'
   contact:
@@ -58,6 +58,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/Recommendation'
 components:
+  parameters:
+    AccountIdentifier:
+      name: accountIdentifier
+      in: query
+      required: true
+      schema:
+        type: string
+      description: The Harness account identifier.
   schemas:
     Recommendation:
       type: object
@@ -87,14 +95,6 @@ components:
         recommendationDetails:
           type: object
           additionalProperties: true
-  parameters:
-    AccountIdentifier:
-      name: accountIdentifier
-      in: query
-      required: true
-      schema:
-        type: string
-      description: The Harness account identifier.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -1,12 +1,7 @@
 {
   "provider": "harness-cloud-cost",
   "sources": [
-    "harness-cloud-cost-anomalies-api-openapi.yml",
-    "harness-cloud-cost-budgets-api-openapi.yml",
-    "harness-cloud-cost-connectors-api-openapi.yml",
-    "harness-cloud-cost-cost-categories-api-openapi.yml",
-    "harness-cloud-cost-perspectives-api-openapi.yml",
-    "harness-cloud-cost-recommendations-api-openapi.yml"
+    "_original/harness-cloud-cost-openapi.yml"
   ],
   "outputs": [
     "harness-cloud-cost-anomalies-api-openapi.yml",
@@ -20,13 +15,16 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "harness-cloud-cost-anomalies-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "harness-cloud-cost-budgets-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "harness-cloud-cost-connectors-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "harness-cloud-cost-cost-categories-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "harness-cloud-cost-perspectives-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "harness-cloud-cost-recommendations-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "harness-cloud-cost-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "harness-cloud-cost-anomalies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "harness-cloud-cost-budgets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "harness-cloud-cost-connectors-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "harness-cloud-cost-cost-categories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "harness-cloud-cost-perspectives-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "harness-cloud-cost-recommendations-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
