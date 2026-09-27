@@ -43,14 +43,6 @@ paths:
                 items:
                   $ref: '#/components/schemas/Connector'
 components:
-  parameters:
-    AccountIdentifier:
-      name: accountIdentifier
-      in: query
-      required: true
-      schema:
-        type: string
-      description: The Harness account identifier.
   schemas:
     Connector:
       type: object
@@ -69,6 +61,14 @@ components:
         spec:
           type: object
           additionalProperties: true
+  parameters:
+    AccountIdentifier:
+      name: accountIdentifier
+      in: query
+      required: true
+      schema:
+        type: string
+      description: The Harness account identifier.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
