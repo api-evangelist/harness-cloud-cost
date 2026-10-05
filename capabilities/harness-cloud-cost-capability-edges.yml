@@ -1,0 +1,66 @@
+slug: harness-cloud-cost
+provider: Harness Cloud Cost Management
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: Cost Categories
+  spec_file: harness-cloud-cost-cost-categories-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.85
+  evidence: '"chargeback / showback through cost categories"; GET /ccm/api/business-mapping listCostCategories
+    "List cost categories"'
+  reason: Cloud cost allocation constructs used for IT chargeback/showback — IT Financial Management,
+    not general cost accounting.
+- tag: Recommendations
+  spec_file: harness-cloud-cost-recommendations-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.85
+  evidence: GET /ccm/api/recommendation/overview/list  "List cost recommendations"
+  reason: AI-driven cloud cost optimisation recommendations fall squarely under IT cost optimisation /
+    IT Financial Management.
+- tag: Budgets
+  spec_file: harness-cloud-cost-budgets-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.82
+  evidence: 'POST /ccm/api/budgets "Create a budget"; description: cloud cost "budgets ... and chargeback
+    / showback through cost categories" for FinOps'
+  reason: Budget CRUD here governs cloud spend thresholds for FinOps chargeback/showback, which is IT
+    spend and cost optimisation rather than enterprise financial budgeting. Some residual ambiguity with
+    BC-230.10 keeps this at 0.82.
+- tag: Perspectives
+  spec_file: harness-cloud-cost-perspectives-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.8
+  evidence: '"createPerspective  Create a perspective" within "programmatic access to cloud cost data,
+    perspectives, budgets"'
+  reason: Perspectives are configurable cloud-cost views for FinOps reporting, i.e. IT spend visibility
+    and cost optimisation.
+- tag: Anomalies
+  spec_file: harness-cloud-cost-anomalies-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.78
+  evidence: 'GET /ccm/api/anomaly "List anomalies"; description: "programmatic access to cloud cost data,
+    perspectives, budgets, anomaly detection" enabling "FinOps practices"'
+  reason: These anomalies are cloud cost spend anomalies, not security or monitoring alerts, so the capability
+    realised is IT spend management and cost optimisation under IT Financial Management. Read-only surface
+    with a single schema keeps confidence under 0.8.
