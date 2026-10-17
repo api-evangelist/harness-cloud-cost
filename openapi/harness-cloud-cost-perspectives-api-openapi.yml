@@ -118,15 +118,6 @@ paths:
           description: Perspective deleted.
 components:
   schemas:
-    PerspectiveList:
-      type: object
-      properties:
-        totalCount:
-          type: integer
-        views:
-          type: array
-          items:
-            $ref: '#/components/schemas/Perspective'
     Perspective:
       type: object
       properties:
@@ -182,6 +173,15 @@ components:
             - BUSINESS_MAPPING
             - LABEL
             - LABEL_V2
+    PerspectiveList:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+        views:
+          type: array
+          items:
+            $ref: '#/components/schemas/Perspective'
   parameters:
     AccountIdentifier:
       name: accountIdentifier
