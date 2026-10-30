@@ -1,4 +1,4 @@
-# Harness Cloud Cost Management (harness-cloud-cost)
+# Harness Cloud Cost Management
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,62 +66,137 @@
 
 Harness Cloud Cost Management (CCM) provides intelligent cloud cost optimization with AI-driven recommendations, customizable cost perspectives, budgets, anomaly detection, and chargeback / showback through cost categories. CCM ingests cost data from AWS, Azure, GCP, and Kubernetes clusters and exposes a REST API on the Harness platform for FinOps automation.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/apis.yml)
+**Areas:** Anomaly Detection · Budgets · Cloud Cost Management · FinOps · Kubernetes · Recommendations
 
-## Scope
+## Harness Cloud Cost Management on APIs.io
 
-- **Type:** Index
+Everything profiled for Harness Cloud Cost Management is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/harness-cloud-cost/](https://apis.io/providers/harness-cloud-cost/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- Anomaly Detection
-- Budgets
-- Cloud Cost Management
-- FinOps
-- Kubernetes
-- Recommendations
+- [Harness Cloud Cost Management Anomalies API](https://apis.io/apis/harness-cloud-cost/harness-cloud-cost-anomalies-api/) — Detect and review unusual cost patterns and anomalies.
+- [Harness Cloud Cost Management Budgets API](https://apis.io/apis/harness-cloud-cost/harness-cloud-cost-budgets-api/) — Define and monitor cloud spending budgets with alerts.
+- [Harness Cloud Cost Management Connectors API](https://apis.io/apis/harness-cloud-cost/harness-cloud-cost-connectors-api/) — Manage cloud provider and Kubernetes connectors for cost ingestion.
+- [Harness Cloud Cost Management Cost Categories API](https://apis.io/apis/harness-cloud-cost/harness-cloud-cost-cost-categories-api/) — Allocate and chargeback cloud costs by business units.
+- [Harness Cloud Cost Management Perspectives API](https://apis.io/apis/harness-cloud-cost/harness-cloud-cost-perspectives-api/) — Group and analyze cloud cost data through customizable views.
+- [Harness Cloud Cost Management Recommendations API](https://apis.io/apis/harness-cloud-cost/harness-cloud-cost-recommendations-api/) — AI-driven recommendations for cloud cost optimization.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-27
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Harness Cloud Cost Management API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Harness CCM API provides programmatic access to cloud cost data, perspectives, budgets, anomaly detection, AI-driven recommendations, cost categories (chargeback / showback), and cloud connector configuration across AWS, Azure, GCP, and Kubernetes.
+- [Harness Cloud Cost Agentic Access](https://apis.io/agentic-access/harness-cloud-cost/harness-cloud-cost-agentic-access/)
 
-- **Human URL:** [https://www.harness.io/products/cloud-cost](https://www.harness.io/products/cloud-cost)
-- **Base URL:** `https://app.harness.io`
+#### Collections (7)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Cloud Cost Management
-- FinOps
+- [Harness Cloud Cost Management API](https://apis.io/collections/harness-cloud-cost/open-harness-cloud-cost/)
+- [Harness Cloud Cost Management Anomalies API](https://apis.io/collections/harness-cloud-cost/open-harness-cloud-cost-anomalies-api/)
+- [Harness Cloud Cost Management Anomalies Budgets API](https://apis.io/collections/harness-cloud-cost/open-harness-cloud-cost-budgets-api/)
+- [Harness Cloud Cost Management Anomalies Connectors API](https://apis.io/collections/harness-cloud-cost/open-harness-cloud-cost-connectors-api/)
+- [Harness Cloud Cost Management Anomalies Cost Categories API](https://apis.io/collections/harness-cloud-cost/open-harness-cloud-cost-cost-categories-api/)
+- [Harness Cloud Cost Management Anomalies Perspectives API](https://apis.io/collections/harness-cloud-cost/open-harness-cloud-cost-perspectives-api/)
+- [Harness Cloud Cost Management Anomalies Recommendations API](https://apis.io/collections/harness-cloud-cost/open-harness-cloud-cost-recommendations-api/)
 
-#### Properties
+#### Governance rules (1)
 
-- [Documentation](https://developer.harness.io/docs/cloud-cost-management)
-- [Getting Started](https://developer.harness.io/docs/cloud-cost-management/get-started/overview)
-- [API Reference](https://apidocs.harness.io/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/openapi/harness-cloud-cost-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Rules](https://raw.githubusercontent.com/api-evangelist/harness-cloud-cost/refs/heads/main/rules/harness-cloud-cost-rules.yml)
-- [Postman Collection](collections/harness-cloud-cost.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/harness-cloud-cost.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Spectral rulesets for the provider's contracts.
 
-## Common Properties
+- [Harness Cloud Cost Management API Rules](https://apis.io/rules/harness-cloud-cost/harness-cloud-cost-rules/)
 
-- [GitHub Organization](https://github.com/harness)
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Harness Cloud Cost Authentication](https://apis.io/security/harness-cloud-cost/harness-cloud-cost-authentication/)
+- [Harness Cloud Cost Domain Security](https://apis.io/security/harness-cloud-cost/harness-cloud-cost-domain-security/)
+- [Harness Cloud Cost Trust Center](https://apis.io/security/harness-cloud-cost/harness-cloud-cost-trust-center/)
+- [Harness Cloud Cost Vulnerability Disclosure](https://apis.io/security/harness-cloud-cost/harness-cloud-cost-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Harness Cloud Cost Plans Pricing](https://apis.io/plans/harness-cloud-cost/harness-cloud-cost-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Harness Cloud Cost Rate Limits](https://apis.io/rate-limits/harness-cloud-cost/harness-cloud-cost-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Harness Cloud Cost Finops](https://apis.io/finops/harness-cloud-cost/harness-cloud-cost-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.harness.io/products/cloud-cost)
 - [Documentation](https://developer.harness.io/docs/cloud-cost-management)
-- [API Reference](https://apidocs.harness.io/)
+- [API reference](https://apidocs.harness.io/)
 - [Pricing](https://www.harness.io/pricing)
-- [Status Page](https://status.harness.io)
-- [Integrations](https://www.harness.io/partners)
-- [L L Ms Txt](https://apidocs.harness.io/llms.txt)
+- [Blog](https://www.harness.io/blog/rss.xml)
+- [GitHub](https://github.com/harness)
+- [Status](https://status.harness.io)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 37.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 48.1 |
+| Contract governance | 0.0 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 42.9 |
+| Access clarity | 26.3 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/harness-cloud-cost/](https://apis.io/providers/harness-cloud-cost/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Harness Cloud Cost Management: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/harness-cloud-cost/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
